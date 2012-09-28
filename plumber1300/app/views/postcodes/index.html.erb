@@ -1,12 +1,11 @@
-<h1>Listing postcodes</h1>
+<h1>Postcode Admin View</h1>
 
 <table>
   <tr>
     <th>Postcode</th>
-    <th>Suburb</th>
     <th>Price</th>
-    <th>Isavailable</th>
-    <th>Maxlimit</th>
+    <th>Available to Buy</th>
+    <th>Max Number of Plumbers</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,17 +14,15 @@
 <% @postcodes.each do |postcode| %>
   <tr>
     <td><%= postcode.postcode %></td>
-    <td><%= postcode.suburb %></td>
     <td><%= postcode.price %></td>
     <td><%= postcode.isAvailable %></td>
     <td><%= postcode.maxLimit %></td>
-    <td><%= link_to 'Show', postcode %></td>
     <td><%= link_to 'Edit', edit_postcode_path(postcode) %></td>
-    <td><%= link_to 'Destroy', postcode, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Delete', postcode, confirm: 'Do you want to delete this postcode?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Postcode', new_postcode_path %>
+<%= link_to 'Create New Postcode', admin_postcode_new_path %>

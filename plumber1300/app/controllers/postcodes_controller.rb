@@ -17,7 +17,7 @@ class PostcodesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @postcode }
+      format.json { render json: postcodes_url }
     end
   end
 
@@ -28,7 +28,7 @@ class PostcodesController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @postcode }
+      format.json { render json: postcodes_url }
     end
   end
 
@@ -44,8 +44,8 @@ class PostcodesController < ApplicationController
 
     respond_to do |format|
       if @postcode.save
-        format.html { redirect_to @postcode, notice: 'Postcode was successfully created.' }
-        format.json { render json: @postcode, status: :created, location: @postcode }
+        format.html { redirect_to postcodes_url, notice: 'Postcode was successfully created.' }
+        format.json { render json: postcodes_url, status: :created, location: postcodes_url }
       else
         format.html { render action: "new" }
         format.json { render json: @postcode.errors, status: :unprocessable_entity }
@@ -60,7 +60,7 @@ class PostcodesController < ApplicationController
 
     respond_to do |format|
       if @postcode.update_attributes(params[:postcode])
-        format.html { redirect_to @postcode, notice: 'Postcode was successfully updated.' }
+        format.html { redirect_to postcodes_url, notice: 'Postcode was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
