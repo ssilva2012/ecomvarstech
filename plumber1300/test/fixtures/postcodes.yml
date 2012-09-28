@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  postcode: 1
+  suburb: MyString
+  price: 9.99
+  isAvailable: 1
+  maxLimit: 1
+
+two:
+  postcode: 1
+  suburb: MyString
+  price: 9.99
+  isAvailable: 1
+  maxLimit: 1
