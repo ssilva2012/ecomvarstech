@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  supplierCode: MyString
+  name: MyString
+  enabled: 1
+  address1: MyString
+  address2: MyString
+  email: MyString
+  suburb: MyString
+  postCode: MyString
+  regNo: MyString
+
+two:
+  supplierCode: MyString
+  name: MyString
+  enabled: 1
+  address1: MyString
+  address2: MyString
+  email: MyString
+  suburb: MyString
+  postCode: MyString
+  regNo: MyString
