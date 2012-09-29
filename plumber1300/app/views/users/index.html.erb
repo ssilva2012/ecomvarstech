@@ -1,0 +1,30 @@
+<h1>Listing users</h1>
+
+<table>
+  <tr>
+    <th>User e-mail</th>
+    <th>User Type</th>
+    <th>Remember Me</th>
+    <th>Enabled</th>
+    <th>Request reset</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.email %></td>
+    <td><%= user.userType %></td>
+    <td><%= user.remember %></td>
+    <td><%= user.enabled %></td>
+    <td><%= user.reset %></td>
+    <td><%= link_to 'Edit', edit_user_path(user) %></td>
+    <td><%= link_to 'Delete', user, confirm: 'Do you want to delete this user?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Create New User', admin_user_new_path %>

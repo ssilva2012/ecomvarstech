@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  email: MyString
+  type: 
+  remember: 1
+  enabled: 1
+  reset: 1
+
+two:
+  email: MyString
+  type: 
+  remember: 1
+  enabled: 1
+  reset: 1

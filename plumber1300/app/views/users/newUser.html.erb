@@ -1,0 +1,26 @@
+<h1>Sign Up as New User</h1>
+
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label 'User e-mail' %><br />
+    <%= f.text_field :email %>
+  </div>
+    <%= f.label 'Remember Me' %><br />
+    <%= f.number_field :remember, :value => 0, :in => 0...2 %>
+  </div>
+  <div class="actions">
+    <%= submit_tag 'Sign Up', :name =>'signup'%>
+  </div>
+<% end %>
