@@ -75,7 +75,9 @@ Plumber1300::Application.routes.draw do
   post 'signup' => 'users#signUp'
 
   get 'admin/product' => 'products#index'
+  get 'admin/product/new' => 'products#new'
 
   get 'admin/suppliers' => 'suppliers#index'
+  get 'admin/suppliers/new' => 'suppliers#new'
 
 end
