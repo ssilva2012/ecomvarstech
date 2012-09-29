@@ -19,6 +19,14 @@
     <%= f.label 'User Type' %><br />
     <%= f.text_field :userType %>
   </div>
+   <div class="field">
+    <%= f.label 'Password' %>
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label 'Confirm Password', "Confirmation" %>
+    <%= f.password_field :password_confirmation %>
+  </div>
   <div class="field">
     <%= f.label 'Remember Me' %><br />
     <%= f.number_field :remember, :value => 0, :in => 0...2 %>

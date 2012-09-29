@@ -11,15 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120929101528) do
+ActiveRecord::Schema.define(:version => 20120929104829) do
 
   create_table "postcodes", :force => true do |t|
     t.integer  "postcode"
+    t.string   "suburb"
+    t.decimal  "price"
     t.integer  "isAvailable"
     t.integer  "maxLimit"
-    t.decimal  "price",       :precision => 8, :scale => 2
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "products", :force => true do |t|
@@ -33,12 +34,13 @@ ActiveRecord::Schema.define(:version => 20120929101528) do
 
   create_table "users", :force => true do |t|
     t.string   "email"
-    t.string   "userType",   :default => "USER"
-    t.integer  "remember",   :default => 0
-    t.integer  "enabled",    :default => 1
-    t.integer  "reset",      :default => 0
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
+    t.string   "userType",        :default => "USER"
+    t.integer  "remember",        :default => 0
+    t.integer  "enabled",         :default => 1
+    t.integer  "reset",           :default => 0
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+    t.string   "password_digest"
   end
 
 end
