@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120928231444) do
+ActiveRecord::Schema.define(:version => 20120929003509) do
 
   create_table "postcodes", :force => true do |t|
     t.integer  "postcode"
@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(:version => 20120928231444) do
     t.integer  "maxLimit"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "email"
+    t.string   "userType"
+    t.integer  "remember"
+    t.integer  "enabled"
+    t.integer  "reset"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

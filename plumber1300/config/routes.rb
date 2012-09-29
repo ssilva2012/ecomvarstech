@@ -1,4 +1,6 @@
 Plumber1300::Application.routes.draw do
+  resources :users
+
   resources :postcodes
 
   # The priority is based upon order of creation:
