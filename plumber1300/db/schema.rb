@@ -25,12 +25,12 @@ ActiveRecord::Schema.define(:version => 20120929003509) do
 
   create_table "users", :force => true do |t|
     t.string   "email"
-    t.string   "userType"
-    t.integer  "remember"
-    t.integer  "enabled"
-    t.integer  "reset"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string   "userType",   :default => "USER"
+    t.integer  "remember",   :default => 0
+    t.integer  "enabled",    :default => 1
+    t.integer  "reset",      :default => 0
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
 end

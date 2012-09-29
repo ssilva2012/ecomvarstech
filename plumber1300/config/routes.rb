@@ -64,5 +64,11 @@ Plumber1300::Application.routes.draw do
   get 'admin/postcode/new' => 'postcodes#new'
   get 'admin/postcode/:id/edit/' => 'postcodes#edit'
 
+  get 'admin/user' => 'users#index'
+  get 'admin/user/new' => 'users#new'
+  get 'admin/user/:id/edit/' => 'users#edit'
+  get 'newuser' => 'users#newUser'
+
+  post 'signup' => 'users#signUp'
 
 end
