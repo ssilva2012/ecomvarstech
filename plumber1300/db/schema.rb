@@ -11,14 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120929003509) do
+ActiveRecord::Schema.define(:version => 20120929101528) do
 
   create_table "postcodes", :force => true do |t|
     t.integer  "postcode"
-    t.string   "suburb"
-    t.decimal  "price"
     t.integer  "isAvailable"
     t.integer  "maxLimit"
+    t.decimal  "price",       :precision => 8, :scale => 2
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+  end
+
+  create_table "products", :force => true do |t|
+    t.string   "productCode"
+    t.string   "name"
+    t.string   "uom"
+    t.string   "category"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end

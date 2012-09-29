@@ -1,4 +1,6 @@
 Plumber1300::Application.routes.draw do
+  resources :products
+
   resources :users
 
   resources :postcodes
@@ -68,7 +70,8 @@ Plumber1300::Application.routes.draw do
   get 'admin/user/new' => 'users#new'
   get 'admin/user/:id/edit/' => 'users#edit'
   get 'newuser' => 'users#newUser'
-
   post 'signup' => 'users#signUp'
+
+  get 'admin/product' => 'products#index'
 
 end
