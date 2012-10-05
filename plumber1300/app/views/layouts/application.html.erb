@@ -8,7 +8,56 @@
 </head>
 <body>
 
-<%= yield %>
+<div class="row-fluid">
+  <div class="span10 offset1" style="background: -webkit-linear-gradient(100deg, #2ECCFA 0%,#084B8A 100%); ">
+  	<!--<div class="span10 offset1" style="background:green;">-->
+
+  		<div class="row-fluid">
+		  <div class="span10 offset1"></div>
+		</div>
+
+		<div class="row-fluid">
+		  <div class="span5 offset1" style="background:blue;">
+		  	<%= image_tag("logo.jpg", :alt => "rss feed") %>
+		  </div>
+		  <div class="span5" style="background:red;">HotList</div>
+		</div>
+
+		<div class="row-fluid">
+		  <div class="span10 offset1" style="background:orange;">menu</div>
+		</div>
+
+		<div class="row-fluid">
+		  <div class="span10 offset1" style="background:green;">Annimated mulit image banner</div>
+		</div>
+
+		<div class="row-fluid">
+		  <div class="span7 offset1" style="background:brown;"><%= yield %></div>
+		  <div class="span3" style="background:gray;">List of Options</div>
+		</div>
+
+		<div class="row-fluid">
+		  <div class="span3 offset1" style="background:silver;">Ad 1</div>
+		  <div class="span4" style="background:gold;">ad 2</div>
+		  <div class="span3" style="background:pink;">ad 3</div>
+		</div>
+
+		<div class="row-fluid">
+		 <div class="span10 offset1" style="background:green;">footer</div>
+		</div>
+
+		<div class="row-fluid">
+		  <div class="span10 offset1"></div>
+		</div>
+		
+
+  	<!--</div>-->
+  </div>
+</div>
+
+
+
+
 
 </body>
 </html>
