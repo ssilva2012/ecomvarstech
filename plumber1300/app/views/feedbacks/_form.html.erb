@@ -1,0 +1,69 @@
+<%= form_for(@feedback) do |f| %>
+  <% if @feedback.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@feedback.errors.count, "error") %> prohibited this feedback from being saved:</h2>
+
+      <ul>
+      <% @feedback.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<table>
+  <tr>
+    <td><%= f.label "Name" %></td>
+    <td><%= f.text_field :custName %></td>
+  </tr>
+  <tr>
+    <td><%= f.label "Address" %></td>
+    <td><%= f.text_field :custAddress %></td>
+  </tr>
+  <tr>
+    <td><%= f.label "Suburb" %></td>
+    <td><%= f.text_field :custSuburb %></td>
+  </tr>
+  <tr>
+    <td><%= f.label "Postcode" %></td>
+    <td><%= f.text_field :jobPostcode %></td>
+  </tr>
+  <tr>
+    <td><%= f.label "Quality of Work" %></td>
+    <td><%= f.number_field :quality, :in => 1...6 %></td>
+  </tr>
+  <tr>
+    <td><%= f.label "Value for Money" %></td>
+    <td><%= f.number_field :value, :in => 1...6 %></td>
+  </tr>
+  <tr>
+    <td><%= f.label "Punctuality" %></td>
+    <td><%= f.number_field :punctuality, :in => 1...6 %></td>
+  </tr>
+  <tr>
+    <td><%= f.label "Work Style" %></td>
+    <td><%= f.number_field :workStyle, :in => 1...6 %></td>
+  </tr>
+  <tr>
+    <td><%= f.label "Professionalism" %></td>
+    <td><%= f.number_field :professionalism, :in => 1...6 %></td>
+  </tr>
+  <tr>
+    <td><%= f.label "Comments" %></td>
+    <td><%= f.text_field :comments %></td>
+  </tr>
+  <tr>
+    <td><%= f.label "Job Date" %></td>
+    <td><%= f.date_select :jobDate %></td>
+  </tr>
+  <tr>
+    <td><%= f.label "Plumber Info(Any info like name, mobile)" %></td>
+    <td><%= f.text_field :plumberInfo %></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= f.submit %></td>
+  </tr>
+
+</table>
+<% end %>

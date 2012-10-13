@@ -11,4 +11,7 @@ class StaticPagesController < ApplicationController
   def diytutorials
   end
 
+   def faq
+  end
+
 end

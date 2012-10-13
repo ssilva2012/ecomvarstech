@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Custname:</b>
+  <%= @feedback.custName %>
+</p>
+
+<p>
+  <b>Custaddress:</b>
+  <%= @feedback.custAddress %>
+</p>
+
+<p>
+  <b>Custsuburb:</b>
+  <%= @feedback.custSuburb %>
+</p>
+
+<p>
+  <b>Jobpostcode:</b>
+  <%= @feedback.jobPostcode %>
+</p>
+
+<p>
+  <b>Quality:</b>
+  <%= @feedback.quality %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <%= @feedback.value %>
+</p>
+
+<p>
+  <b>Punctuality:</b>
+  <%= @feedback.punctuality %>
+</p>
+
+<p>
+  <b>Workstyle:</b>
+  <%= @feedback.workStyle %>
+</p>
+
+<p>
+  <b>Professionalism:</b>
+  <%= @feedback.professionalism %>
+</p>
+
+<p>
+  <b>Comments:</b>
+  <%= @feedback.comments %>
+</p>
+
+<p>
+  <b>Jobdate:</b>
+  <%= @feedback.jobDate %>
+</p>
+
+<p>
+  <b>Plumberinfo:</b>
+  <%= @feedback.plumberInfo %>
+</p>
+
+
+<%= link_to 'Edit', edit_feedback_path(@feedback) %> |
+<%= link_to 'Back', feedbacks_path %>

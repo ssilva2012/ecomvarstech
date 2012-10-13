@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  custName: MyString
+  custAddress: MyString
+  custSuburb: MyString
+  jobPostcode: MyString
+  quality: 1
+  value: 1
+  punctuality: 1
+  workStyle: 1
+  professionalism: 1
+  comments: MyString
+  jobDate: 2012-10-13
+  plumberInfo: MyString
+
+two:
+  custName: MyString
+  custAddress: MyString
+  custSuburb: MyString
+  jobPostcode: MyString
+  quality: 1
+  value: 1
+  punctuality: 1
+  workStyle: 1
+  professionalism: 1
+  comments: MyString
+  jobDate: 2012-10-13
+  plumberInfo: MyString

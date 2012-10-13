@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120929110112) do
+ActiveRecord::Schema.define(:version => 20121013125941) do
+
+  create_table "feedbacks", :force => true do |t|
+    t.string   "custName"
+    t.string   "custAddress"
+    t.string   "custSuburb"
+    t.string   "jobPostcode"
+    t.integer  "quality",         :default => 3
+    t.integer  "value",           :default => 3
+    t.integer  "punctuality",     :default => 3
+    t.integer  "workStyle",       :default => 3
+    t.integer  "professionalism", :default => 3
+    t.string   "comments"
+    t.date     "jobDate"
+    t.string   "plumberInfo"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+  end
 
   create_table "postcodes", :force => true do |t|
     t.integer  "postcode"

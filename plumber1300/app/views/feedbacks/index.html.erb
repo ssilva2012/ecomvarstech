@@ -1,0 +1,44 @@
+
+
+
+
+
+<div class="row-fluid"> 
+  <div class="span10 offset1">
+    <h3>All Feedbacks</h3>
+
+        <table border="1" width="100%">
+          <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Suburb</th>
+            <th>Postcode</th>
+            <th>Quality</th>
+            <th>Value</th>
+            <th>Punctuality</th>
+            <th>Style</th>
+            <th>Professionalism</th>
+            <th>Comments</th>
+            <th>Job Date</th>
+            <th>Plumber Info</th>
+          </tr>
+
+        <% @feedbacks.each do |feedback| %>
+          <tr>
+            <td><%= feedback.custName %></td>
+            <td><%= feedback.custAddress %></td>
+            <td><%= feedback.custSuburb %></td>
+            <td><%= feedback.jobPostcode %></td>
+            <td><%= feedback.quality %></td>
+            <td><%= feedback.value %></td>
+            <td><%= feedback.punctuality %></td>
+            <td><%= feedback.workStyle %></td>
+            <td><%= feedback.professionalism %></td>
+            <td><%= feedback.comments %></td>
+            <td><%= feedback.jobDate %></td>
+            <td><%= feedback.plumberInfo %></td>
+          </tr>
+        <% end %>
+        </table>
+  </div>    
+</div>

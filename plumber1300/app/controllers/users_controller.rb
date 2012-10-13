@@ -54,7 +54,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         if(params[:signup])
-          format.html { redirect_to @user, notice: 'User was successfully created.' }
+          format.html { redirect_to home_path, notice: 'User was successfully created.' }
           format.json { render json: @user, status: :created, location: @user }
         else
           format.html { redirect_to admin_user_url, notice: 'User was successfully created.' }

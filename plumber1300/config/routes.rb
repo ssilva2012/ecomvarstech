@@ -1,8 +1,11 @@
 Plumber1300::Application.routes.draw do
+  resources :feedbacks
+
   get "static_pages/home"
   get "static_pages/aboutus"
   get "static_pages/contactus"
   get "static_pages/diytutorials"
+  get "static_pages/faq"
 
   resources :suppliers
 
@@ -88,5 +91,7 @@ Plumber1300::Application.routes.draw do
   get 'aboutus' => 'static_pages#aboutus'
   get 'contactus' => 'static_pages#contactus'
   get 'diytutorials' => 'static_pages#diytutorials'
+  get 'faq' => 'static_pages#faq'
+  get 'admin/feedback' => 'feedbacks#index'
 
 end
