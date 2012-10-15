@@ -32,12 +32,11 @@ ActiveRecord::Schema.define(:version => 20121013125941) do
 
   create_table "postcodes", :force => true do |t|
     t.integer  "postcode"
-    t.string   "suburb"
-    t.decimal  "price"
     t.integer  "isAvailable"
     t.integer  "maxLimit"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.decimal  "price",       :precision => 8, :scale => 2
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
   end
 
   create_table "products", :force => true do |t|
