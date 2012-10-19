@@ -1,5 +1,5 @@
-<div class="row-fluid">	
-	<div class="span7" style="padding-left:2em;padding-right:1em;">
+<div class="group">	
+  <article id="intro" style="width:60%;padding-top:1.5em">
 
 
 	<h4>About 1300 Plumber</h4>
@@ -50,13 +50,16 @@
 	We strive for excellence everyday and we will continue to understand the business of our customers. We will seek new opportunities and continue to cement the status of 'Market Leadership' in our industry.
 
 	<br><br><br>
+	<%= render 'howitworksWF' %>
 
-	</div>	
+	</article>	
 
-		 <%= render 'findplumber' %>
-
-		 <%= render 'customerfeedback' %>
-		 <%= render 'customerfeedback' %>
+	<section id="demo" style="width:30%;padding-top:3em">
+   		<%= render 'findplumber' %>
+   		<%= render 'howitworksIVR' %>
+   		<%= render 'customerfeedback' %>
+		<%= render 'customerfeedback' %>
+ 	</section>
 </div>
 
 <%= render 'promotion' %>

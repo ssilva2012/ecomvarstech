@@ -1,9 +1,8 @@
+<div class="group">
 
+    <article id="intro" style="width:60%;padding-top:1.5em">
 
-
-<div class="row-fluid"> 
-  <div class="span7" style="padding-left:2em;padding-right:1em;">
-    <h3>Register on 1300 PLUMBER</h3>
+    <h3>Subscribe to 1300 PLUMBER for latest promotions and news letters</h3>
 
     <table width="50%" >
       <%= form_for(@user, :html => { :class => "form-horizontal"}) do |f|  %>
@@ -35,9 +34,11 @@
       <% end %>
     </table>
 
-    
-  </div>    
-  <%= render 'findplumber' %>
+  </article>    
+
+  <section id="demo" style="width:30%;padding-top:3em">
+      <%= render 'findplumber' %>
+  </section>
 
 </div>
 

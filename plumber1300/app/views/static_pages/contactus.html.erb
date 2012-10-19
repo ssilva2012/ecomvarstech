@@ -1,5 +1,5 @@
-<div class="row-fluid">	
-  <div class="span7" style="padding-left:2em;padding-right:1em;">
+<div class="group">	
+  <article id="intro" style="width:60%;padding-top:1.5em">
   	<h4>Contact 1300 Plumber </h4> 
   	<p>
   		<%= image_tag("contactUs_phone.png", :alt => "Phone") %> Phone: <b>1300PLUMBER</b> OR <b>1300 758 623</b>
@@ -7,10 +7,16 @@
   	<p>
   		<%= image_tag("contactUs_email.png", :alt => "email") %> email: <b>mark@1300plumber.net.au</b>
   	</p>
-  </div>	
-  
- <%= render 'findplumber' %>
 
-</div>
+  	<%= render 'howitworksWF' %>
+ 	
+ </article>
+
+ <section id="demo" style="width:30%;padding-top:3em">
+   <%= render 'findplumber' %>
+   <%= render 'howitworksIVR' %>
+ </section>
+
+ </div>
 
 <%= render 'promotion' %>

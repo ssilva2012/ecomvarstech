@@ -6,6 +6,11 @@ Plumber1300::Application.routes.draw do
   get "static_pages/contactus"
   get "static_pages/diytutorials"
   get "static_pages/faq"
+  get "static_pages/plumbersection"
+  get "static_pages/faqplumber"
+  get "static_pages/advertising"
+  get "static_pages/howitworks"
+  
 
   resources :suppliers
 
@@ -92,6 +97,11 @@ Plumber1300::Application.routes.draw do
   get 'contactus' => 'static_pages#contactus'
   get 'diytutorials' => 'static_pages#diytutorials'
   get 'faq' => 'static_pages#faq'
+  get 'plumberfaq' => 'static_pages#faqplumber'
+  get 'plumber' => 'static_pages#plumbersection'
+  get 'advertising' => 'static_pages#advertising'
+  get 'howitworks' => 'static_pages#howitworks'
+  
   get 'admin/feedback' => 'feedbacks#index'
 
 end
