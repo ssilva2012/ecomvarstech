@@ -26,4 +26,10 @@ class StaticPagesController < ApplicationController
   def howitworks
   end
 
+  def callrates
+  end
+
+  def fineprint
+  end
+
 end
