@@ -618,6 +618,18 @@ figure {
 	}
 }
 
+.textm:hover
+{	
+	border-color:#FF0000;
+}
+
+.textm
+{
+	border-radius: 4px;
+	padding: .5em;
+	border-color:blue;
+}
+
 #nav{margin:0;
       padding:5px 6px 0;
       line-height:80%;
