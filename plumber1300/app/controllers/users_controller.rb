@@ -52,8 +52,12 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
 
     respond_to do |format|
+      logger.debug "KP is here to see1"
       if @user.save
+        logger.debug "KP is here to see2"
         if(params[:signup])
+          UserMailer.registration_confirmation(@user).deliver
+          UserMailer.express_intrest(@user).deliver
           format.html { redirect_to home_path, notice: 'User was successfully created.' }
           format.json { render json: @user, status: :created, location: @user }
         else
