@@ -2390,3 +2390,108 @@ figure {
 #nav{display:block;}
 
 #nav{height:1%;}
+
+
+#sideMenu li{
+	list-style:none;
+	height:39px;
+	padding:2px;
+	width:40px;
+}
+
+#sideMenu span{
+	/* Container properties */
+	width:0;
+	left:38px;
+	padding:0;
+	position:absolute;
+	overflow:hidden;
+
+	/* Text properties */
+	font-family:'Myriad Pro',Arial, Helvetica, sans-serif;
+	font-size:18px;
+	font-weight:bold;
+	letter-spacing:0.6px;
+	white-space:nowrap;
+	line-height:39px;
+	
+	/* CSS3 Transition: */
+	-webkit-transition: 0.25s;
+	
+	/* Future proofing (these do not work yet): */
+	-moz-transition: 0.25s;
+	transition: 0.25s;
+}
+
+#sideMenu a{
+	background:url('/assets/navigation.jpg') no-repeat;
+
+	height:39px;
+	width:38px;
+	display:block;
+	position:relative;
+}
+
+/* General hover styles */
+
+#sideMenu a:hover span{ width:auto; padding:0 20px;overflow:visible; }
+#sideMenu a:hover{
+	text-decoration:none;
+	
+	/* CSS outer glow with the box-shadow property */
+	-moz-box-shadow:0 0 5px #9ddff5;
+	-webkit-box-shadow:0 0 5px #9ddff5;
+	box-shadow:0 0 5px #9ddff5;
+}
+
+/* Green Button */
+
+#sideMenu .faqs {	background-position:0 0;}
+#sideMenu .faqs:hover {	background-position:0 -39px;}
+#sideMenu .faqs span{
+	background-color:#7da315;
+	color:#3d4f0c;
+	text-shadow:1px 1px 0 #99bf31;
+}
+
+/* Blue Button */
+
+#sideMenu .benefits { background-position:-38px 0;}
+#sideMenu .benefits:hover { background-position:-38px -39px;}
+#sideMenu .benefits span{
+	background-color:#1e8bb4;
+	color:#223a44;
+	text-shadow:1px 1px 0 #44a8d0;
+}
+
+/* Orange Button */
+
+#sideMenu .advertising { background-position:-76px 0;}
+#sideMenu .advertising:hover { background-position:-76px -39px;}
+#sideMenu .advertising span{
+	background-color:#c86c1f;
+	color:#5a3517;
+	text-shadow:1px 1px 0 #d28344;
+}
+
+/* Yellow Button */
+
+#sideMenu .portfolio { background-position:-114px 0;}
+#sideMenu .portfolio:hover{ background-position:-114px -39px;}
+#sideMenu .portfolio span{
+	background-color:#d0a525;
+	color:#604e18;
+	text-shadow:1px 1px 0 #d8b54b;
+}
+
+/* Purple Button */
+
+#sideMenu .contact { background-position:-152px 0;}
+#sideMenu .contact:hover { background-position:-152px -39px;}
+#sideMenu .contact span{
+	background-color:#af1e83;
+	color:#460f35;
+	text-shadow:1px 1px 0 #d244a6;
+}
+
+
