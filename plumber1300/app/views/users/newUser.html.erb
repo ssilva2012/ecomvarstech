@@ -1,10 +1,11 @@
 <div class="group">
 
     <article id="intro" style="width:60%;padding-top:1.5em">
+    <div align="center">
+    <h3>Registration of Interest</h3>
+  </div>
 
-    <h3>Subscribe to 1300 PLUMBER for latest promotions and news letters</h3>
-
-    <table width="50%" >
+    <table>
       <%= form_for(@user, :html => { :class => "form-horizontal"}) do |f|  %>
         <% if @user.errors.any? %>
             <ul>
@@ -16,20 +17,77 @@
         <% end %>
 
         <tr>
-          <td><%= f.label 'e-mail address' %></td>
-          <td><%= f.text_field :email %></td>
+          <td width="40%" align="right"><%= f.label 'Title' %></td>
+          <td width="40%" align="left"><%= f.select :title, [['Mr.', 'Mr.'], ['Mrs.', 'Mrs.'], ['Ms.', 'Ms.'], ['Miss', 'Miss']] %></td>
         </tr>
         <tr>
-          <td><%= f.label 'Password' %></td>
-          <td><%= f.password_field :password %></td>
+          <td align="right"><%= f.label 'First Name' %></td>
+          <td align="left"><%= f.text_field :firstName %></td>
         </tr>
         <tr>
-          <td><%= f.label 'Confirm Password', "Confirmation" %></td>
-          <td><%= f.password_field :password_confirmation %></td>
+          <td align="right"><%= f.label 'Last Name' %></td>
+          <td align="left"><%= f.text_field :lastName %></td>
+        </tr>
+        <tr>
+          <td align="right"><%= f.label 'Company Name' %></td>
+          <td align="left"><%= f.text_field :company %></td>
+        </tr>
+        <tr>
+          <td align="right"><%= f.label 'Address' %></td>
+          <td align="left"><%= f.text_field :address %></td>
+        </tr>
+        <tr>
+          <td align="right"><%= f.label 'State' %></td>
+          <td align="left"><%= f.select :state, [['NSW', 'NSW'], ['NT', 'NT'], ['QLD', 'QLD'], ['SA', 'SA'], ['TAS', 'TAS'], ['VIC', 'VIC'], ['WA', 'WA']]%></td>
+        </tr>
+        <tr>
+          <td align="right"><%= f.label 'Postcode' %></td>
+          <td align="left"><%= f.text_field :postcode %></td>
+        </tr>
+        <tr>
+          <td align="right"><%= f.label 'Business Phone' %></td>
+          <td align="left"><%= f.text_field :officePhone %></td>
+        </tr>
+        <tr>
+          <td align="right"><%= f.label 'Mobile' %></td>
+          <td align="left"><%= f.text_field :mobile %></td>
+        </tr>
+        <tr>
+          <td align="right"><%= f.label 'I am a fully licensed plumber' %></td>
+          <td align="left"><%= f.check_box :licensed %></td>
+        </tr>
+        <tr>
+          <td align="right"><%= f.label 'I am a fully insured plumber' %></td>
+          <td align="left"><%= f.check_box :insured %></td>
+        </tr>
+        <tr>
+          <td align="right"><%= f.label 'I am able to efficiently service my desired postcode(s)' %></td>
+          <td align="left"><%= f.check_box :efficient %></td>
+        </tr>
+        <tr>
+          <td align="right"><%= f.label 'How did you find us?' %></td>
+          <td align="left"><%= f.select :howFind, [['-None-', '-None-'], ['Affiliate', 'Affiliate'], ['Brochure Campaign', 'Brochure Campaign'], ['Car Advertising', 'Car Advertising'], ['Email from 1300 PLUMBER', 'Email from 1300 PLUMBER'], ['Internet', 'Internet'], ['Master Plumbers Magazine', 'Master Plumbers Magazine'], ['Radio Ad', 'Radio Ad'], ['Referral', 'Referral'], ['Telemarketing', 'Telemarketing'], ['The Yellow Envelope', 'The Yellow Envelope'], ['Trade Show', 'Trade Show'], ['TV Ad', 'TV Ad'], ['Word of mouth', 'Word of mouth']] %></td>
+        </tr>
+
+
+
+
+
+        <tr>
+          <td align="right"><%= f.label 'e-mail address' %></td>
+          <td align="left"><%= f.text_field :email %></td>
+        </tr>
+        <tr>
+          <td align="right"><%= f.label 'Password' %></td>
+          <td align="left"><%= f.password_field :password %></td>
+        </tr>
+        <tr>
+          <td align="right"><%= f.label 'Confirm Password', "Confirmation" %></td>
+          <td align="left"><%= f.password_field :password_confirmation %></td>
         </tr>
         <tr>
           <td></td>
-          <td align="center"><%= submit_tag 'Sign Up', :name =>'signup'%></td>
+          <td align="left"><%= submit_tag 'Sign Up', :name =>'signup'%></td>
         </tr>        
       <% end %>
     </table>

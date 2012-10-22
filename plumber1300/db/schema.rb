@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121013125941) do
+ActiveRecord::Schema.define(:version => 20121022101610) do
 
   create_table "feedbacks", :force => true do |t|
     t.string   "custName"
@@ -71,6 +71,19 @@ ActiveRecord::Schema.define(:version => 20121013125941) do
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
     t.string   "password_digest"
+    t.string   "firstName"
+    t.string   "lastName"
+    t.string   "title"
+    t.string   "company"
+    t.string   "address"
+    t.string   "state"
+    t.string   "postcode"
+    t.string   "officePhone"
+    t.string   "mobile"
+    t.integer  "licensed",        :default => 1
+    t.integer  "insured",         :default => 1
+    t.integer  "efficient",       :default => 1
+    t.string   "howFind"
   end
 
 end
