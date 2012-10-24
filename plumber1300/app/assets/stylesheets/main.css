@@ -75,12 +75,12 @@ body:before {
 }
 
 /* Fonts settings based on the 100E2R standard: http://www.informationarchitects.jp/en/100e2r/ */
-body, button, input, select, textarea {
+body, input, select, textarea {
 	font: 1em/1.625 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	color: #333; /* Black on white is too much contrast, #333 is a lot better */
 }
 
-p, blockquote, q, pre, address, hr, code, samp, dl, ol, ul, form, table, fieldset, menu, h4, h5, h6, img, figure, figcaption, button, hr, header {
+p, blockquote, q, pre, address, hr, code, samp, dl, ol, ul, form, table, fieldset, menu, h4, h5, h6, img, figure, figcaption, hr, header {
 	margin: 0 0 1.625em;
 }
 
@@ -111,7 +111,7 @@ h2 {
 	margin: 0 0 0.619em;
 }
 
-h3, button {
+h3 {
 	font-size: 1em; /* 26px */
 	line-height: 1em;
 	margin: 0 0 1em;
@@ -173,25 +173,16 @@ legend {
 	*margin-left: -7px;
 }
 
-button, input, select, textarea {
+ input, select, textarea {
 	vertical-align: baseline;
 	*vertical-align: middle;
 }
 
-button, input {
+input {
 	line-height: normal;
 	*overflow: visible;
 }
 
-button:active {
-	position: relative;
-	top: 2px;
-}
-
-button, input[type="button"], input[type="reset"], input[type="submit"] {
-	cursor: pointer;
-	-webkit-appearance: button;
-}
 
 input[type="checkbox"], input[type="radio"] {
 	box-sizing: border-box;
@@ -206,11 +197,6 @@ input[type="search"] {
 
 input[type="search"]::-webkit-search-decoration {
 	-webkit-appearance: none;
-}
-
-button::-moz-focus-inner, input::-moz-focus-inner {
-	border: 0;
-	padding: 0;
 }
 
 /* Quotes
@@ -408,28 +394,21 @@ sub {
 	margin-left: 1.625em;
 }
 
-button, a, button:hover, a:hover, pre, pre:hover, #main-header, #main-header:hover {
+a, a:hover, pre, pre:hover, #main-header, #main-header:hover {
 	-moz-transition: all linear 0.3s;
 	-webkit-transition: all linear 0.3s;
 	-o-transition: all linear 0.3s;
 	transition: all linear 0.3s;
 }
 
-button {
-	width: 100%;
-	padding: .2em;
-	border: none;
-	margin: 0 0 .5em;
-}
-
-button, pre {
+pre {
 	border-radius: .3em;
 	background:black;
 	font-weight:bold;;
 	color: white;
 }
 
-button:hover, pre:hover {
+pre:hover {
 	background: #349EF1;
 	box-shadow: inset 10px 20px 10px black;
 }
@@ -545,9 +524,6 @@ figure {
 		float: left;
 	}
 
-	button {
-		width: 100%;
-	}
 
 	#menutop {
 		float: left;
@@ -848,7 +824,7 @@ figure {
         color:#103D4A;
         text-decoration:none;
         display:block;
-        padding:8px 20px;
+        padding:8px 10px;
         margin:0;
         -webkit-border-radius:0em;
         -moz-border-radius:0em;
@@ -999,12 +975,12 @@ body:before {
 }
 
 /* Fonts settings based on the 100E2R standard: http://www.informationarchitects.jp/en/100e2r/ */
-body, button, input, select, textarea {
+body, input, select, textarea {
 	font: 1em/1.625 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	color: #333; /* Black on white is too much contrast, #333 is a lot better */
 }
 
-p, blockquote, q, pre, address, hr, code, samp, dl, ol, ul, form, table, fieldset, menu, h4, h5, h6, img, figure, figcaption, button, hr, header {
+p, blockquote, q, pre, address, hr, code, samp, dl, ol, ul, form, table, fieldset, menu, h4, h5, h6, img, figure, figcaption, hr, header {
 	margin: 0 0 1.625em;
 }
 
@@ -1035,7 +1011,7 @@ h2 {
 	margin: 0 0 0.619em;
 }
 
-h3, button {
+h3 {
 	font-size: 1em; /* 26px */
 	line-height: 1em;
 	margin: 0 0 1em;
@@ -1097,25 +1073,16 @@ legend {
 	*margin-left: -7px;
 }
 
-button, input, select, textarea {
+input, select, textarea {
 	vertical-align: baseline;
 	*vertical-align: middle;
 }
 
-button, input {
+input {
 	line-height: normal;
 	*overflow: visible;
 }
 
-button:active {
-	position: relative;
-	top: 2px;
-}
-
-button, input[type="button"], input[type="reset"], input[type="submit"] {
-	cursor: pointer;
-	-webkit-appearance: button;
-}
 
 input[type="checkbox"], input[type="radio"] {
 	box-sizing: border-box;
@@ -1132,10 +1099,6 @@ input[type="search"]::-webkit-search-decoration {
 	-webkit-appearance: none;
 }
 
-button::-moz-focus-inner, input::-moz-focus-inner {
-	border: 0;
-	padding: 0;
-}
 
 /* Quotes
 ---------------------------------------- */
@@ -1332,28 +1295,21 @@ sub {
 	margin-left: 1.625em;
 }
 
-button, a, button:hover, a:hover, pre, pre:hover, #main-header, #main-header:hover {
+a, a:hover, pre, pre:hover, #main-header, #main-header:hover {
 	-moz-transition: all linear 0.3s;
 	-webkit-transition: all linear 0.3s;
 	-o-transition: all linear 0.3s;
 	transition: all linear 0.3s;
 }
 
-button {
-	width: 100%;
-	padding: .2em;
-	border: none;
-	margin: 0 0 .5em;
-}
-
-button, pre {
+ pre {
 	border-radius: .3em;
 	background:black;
 	font-weight:bold;;
 	color: white;
 }
 
-button:hover, pre:hover {
+pre:hover {
 	background: #349EF1;
 	box-shadow: inset 10px 20px 10px black;
 }
@@ -1467,10 +1423,6 @@ figure {
 
 	#main-nav li {
 		float: left;
-	}
-
-	button {
-		width: 100%;
 	}
 
 	#menutop {
@@ -1739,12 +1691,12 @@ body:before {
 }
 
 /* Fonts settings based on the 100E2R standard: http://www.informationarchitects.jp/en/100e2r/ */
-body, button, input, select, textarea {
+body, input, select, textarea {
 	font: 1em/1.625 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	color: #333; /* Black on white is too much contrast, #333 is a lot better */
 }
 
-p, blockquote, q, pre, address, hr, code, samp, dl, ol, ul, form, table, fieldset, menu, h4, h5, h6, img, figure, figcaption, button, hr, header {
+p, blockquote, q, pre, address, hr, code, samp, dl, ol, ul, form, table, fieldset, menu, h4, h5, h6, img, figure, figcaption, hr, header {
 	margin: 0 0 1.625em;
 }
 
@@ -1775,7 +1727,7 @@ h2 {
 	margin: 0 0 0.619em;
 }
 
-h3, button {
+h3 {
 	font-size: 1em; /* 26px */
 	line-height: 1em;
 	margin: 0 0 1em;
@@ -1837,25 +1789,16 @@ legend {
 	*margin-left: -7px;
 }
 
-button, input, select, textarea {
+input, select, textarea {
 	vertical-align: baseline;
 	*vertical-align: middle;
 }
 
-button, input {
+input {
 	line-height: normal;
 	*overflow: visible;
 }
 
-button:active {
-	position: relative;
-	top: 2px;
-}
-
-button, input[type="button"], input[type="reset"], input[type="submit"] {
-	cursor: pointer;
-	-webkit-appearance: button;
-}
 
 input[type="checkbox"], input[type="radio"] {
 	box-sizing: border-box;
@@ -1872,10 +1815,7 @@ input[type="search"]::-webkit-search-decoration {
 	-webkit-appearance: none;
 }
 
-button::-moz-focus-inner, input::-moz-focus-inner {
-	border: 0;
-	padding: 0;
-}
+
 
 /* Quotes
 ---------------------------------------- */
@@ -2072,28 +2012,23 @@ sub {
 	margin-left: 1.625em;
 }
 
-button, a, button:hover, a:hover, pre, pre:hover, #main-header, #main-header:hover {
+a, a:hover, pre, pre:hover, #main-header, #main-header:hover {
 	-moz-transition: all linear 0.3s;
 	-webkit-transition: all linear 0.3s;
 	-o-transition: all linear 0.3s;
 	transition: all linear 0.3s;
 }
 
-button {
-	width: 100%;
-	padding: .2em;
-	border: none;
-	margin: 0 0 .5em;
-}
 
-button, pre {
+
+pre {
 	border-radius: .3em;
 	background:black;
 	font-weight:bold;;
 	color: white;
 }
 
-button:hover, pre:hover {
+pre:hover {
 	background: #349EF1;
 	box-shadow: inset 10px 20px 10px black;
 }
@@ -2209,9 +2144,7 @@ figure {
 		float: left;
 	}
 
-	button {
-		width: 100%;
-	}
+	
 
 	#menutop {
 		float: left;
@@ -2284,17 +2217,17 @@ figure {
 
 #nav{margin:0;
       padding:5px 6px 0;
-      line-height:80%;
+      line-height:160%;
       width:1125px; 
       border-radius:2em;
       -webkit-border-radius:2em;
       -moz-border-radius:2em;
       -webkit-box-shadow:0 3px 10px rgba(0,0,0,.4);
       -moz-box-shadow:0 0 3px 10px rgba(0,0,0,.4);
-      background:#016391;
-      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#016391',endColorstr='#66CDF5');
-      background:-webkit-gradient(linear,left top,left bottom,from(#016391),to(#66CDF5));
-      background:-moz-linear-gradient(top,#016391,#66CDF5);
+      background:#86FCF5;
+      filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#86FCF5',endColorstr='#115063');
+      background:-webkit-gradient(linear,left top,left bottom,from(#86FCF5),to(#115063));
+      background:-moz-linear-gradient(top,#86FCF5,#115063);
       border:solid 1px #0E9FB3;}
                                                                        
       /*list*/
@@ -2310,18 +2243,18 @@ figure {
         color:#103D4A;
         text-decoration:none;
         display:block;
-        padding:8px 20px;
+        padding:8px 10px;
         margin:0;
         -webkit-border-radius:1.6em;
         -moz-border-radius:1.6em;
         text-shadow:0 1px 1px rgba(0,0,0,.3);}
         /*current text*/
 #nav .current a,#nav li:hover>a{background:#d1d1d1;
-        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1D828A',endColorstr='#a1a1a1');
-        background:-webkit-gradient(linear,left top,left bottom,from(#1D828A),to(#a1a1a1));
-        background:-moz-linear-gradient(top,#ebebeb,#a1a1a1);
-        color:#444;
-        border-top:solid 1px #f8f8f8;
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#66F2E9',endColorstr='#a1a1a1');
+        background:-webkit-gradient(linear,left top,left bottom,from(#66F2E9),to(#a1a1a1));
+        background:-moz-linear-gradient(top,#66F2E9,#a1a1a1);
+        color:#414517;
+        border-top:solid 3px #07312B;
         -webkit-box-shadow:0 1px 1px rgba(0,0,0,.2);
         -moz-box-shadow:0 1px 1px rgba(0,0,0,.2);
         box-shadow:0 1px 1px rgba(0,0,0,.2);
@@ -2489,4 +2422,37 @@ figure {
 	text-shadow:1px 1px 0 #d244a6;
 }
 
+
+.subscribeButton {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #103D4A;
+	padding: 10px 30px;
+	background: -moz-linear-gradient(
+		top,
+		#ffffff 0%,
+		#ffffff 50%,
+		#b5b5b5);
+	background: -webkit-gradient(
+		linear, left top, left bottom, 
+		from(#ffffff),
+		color-stop(0.50, #ffffff),
+		to(#b5b5b5));
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	border: 2px solid #26AA9A;
+	-moz-box-shadow:
+		3px 3px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 3px rgba(255,255,255,1);
+	-webkit-box-shadow:
+		3px 3px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 3px rgba(255,255,255,1);
+	box-shadow:
+		3px 3px 3px rgba(000,000,000,0.5),
+		inset 0px 0px 3px rgba(255,255,255,1);
+	text-shadow:
+		0px -1px 0px rgba(000,000,000,0.2),
+		0px 1px 0px rgba(255,255,255,1);
+}
 
