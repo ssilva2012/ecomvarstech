@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Postcode:</b>
+  <%= @postcode_suburb.postcode %>
+</p>
+
+<p>
+  <b>Suburb:</b>
+  <%= @postcode_suburb.suburb %>
+</p>
+
+
+<%= link_to 'Edit', edit_postcode_suburb_path(@postcode_suburb) %> |
+<%= link_to 'Back', postcode_suburbs_path %>

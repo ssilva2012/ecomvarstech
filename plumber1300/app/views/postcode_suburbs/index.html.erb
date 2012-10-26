@@ -1,0 +1,24 @@
+<h1>Listing postcode_suburbs</h1>
+
+<table>
+  <tr>
+    <th>Postcode</th>
+    <th>Suburb</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @postcode_suburbs.each do |postcode_suburb| %>
+  <tr>
+    <td><%= postcode_suburb.postcode %></td>
+    <td><%= postcode_suburb.suburb %></td>
+    <td><%= link_to 'Update', edit_postcode_suburb_path(postcode_suburb) %></td>
+    <td><%= link_to 'Delete', postcode_suburb, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Postcode suburb', admin_postcodesuburbs_new_path %>

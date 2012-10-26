@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121022101610) do
+ActiveRecord::Schema.define(:version => 20121024111637) do
 
   create_table "feedbacks", :force => true do |t|
     t.string   "custName"
@@ -30,13 +30,22 @@ ActiveRecord::Schema.define(:version => 20121022101610) do
     t.datetime "updated_at",                     :null => false
   end
 
+  create_table "postcode_suburbs", :force => true do |t|
+    t.integer  "postcode"
+    t.string   "suburb"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "postcodes", :force => true do |t|
     t.integer  "postcode"
     t.integer  "isAvailable"
     t.integer  "maxLimit"
-    t.decimal  "price",       :precision => 8, :scale => 2
-    t.datetime "created_at",                                :null => false
-    t.datetime "updated_at",                                :null => false
+    t.decimal  "price",          :precision => 8, :scale => 2
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
+    t.integer  "availableLimit"
+    t.string   "nearPostcodes"
   end
 
   create_table "products", :force => true do |t|
