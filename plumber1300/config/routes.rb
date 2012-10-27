@@ -75,7 +75,7 @@ Plumber1300::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'static_pages#home'
 
   # See how all your routes lay out with "rake routes"
 
@@ -102,6 +102,10 @@ Plumber1300::Application.routes.draw do
   
   #static pages mapping
   get 'home' => 'static_pages#home'
+  get 'privacy' => 'static_pages#privacy'
+  get 'serviceterms' => 'static_pages#serviceterms'
+  get 'advertisehere' => 'static_pages#advertisehere'
+  get 'refund' => 'static_pages#refund'
   get 'aboutus' => 'static_pages#aboutus'
   get 'contactus' => 'static_pages#contactus'
   get 'diytutorials' => 'static_pages#diytutorials'

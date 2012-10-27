@@ -32,4 +32,16 @@ class StaticPagesController < ApplicationController
   def fineprint
   end
 
+  def privacy
+  end
+
+  def serviceterms
+  end
+
+  def advertisehere
+  end
+
+  def refund
+  end
+
 end

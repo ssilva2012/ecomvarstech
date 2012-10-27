@@ -110,18 +110,17 @@ class PostcodesController < ApplicationController
             end
           }
         end
-
-        #respond_to do |format|
-          #render :layout => 'postcodecart'
-          #format.html { redirect_to postcode_cart_index_path}
-          #format.json { render json: @postcodes }
-        #end
-
       else
         respond_to do |format|
           format.html { redirect_to plumber_home_path }
         end
 
+      end
+
+    else
+      logger.debug "No postcode found #{postcodeValue}"
+      respond_to do |format|
+          format.html { redirect_to plumber_home_path }
       end
 
     end

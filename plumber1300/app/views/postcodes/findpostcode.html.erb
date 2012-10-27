@@ -1,45 +1,82 @@
-<h1>Postcode Admin View</h1>
+<h2>Express	 of Intrest</h2>
+
+<div class="group" style="border-right-color:black;">
+
+    <article id="intro" style="width:20%;">
+      <table>
+      	<tr>
+	      	<th>Postcode</th>
+			<th>Price/Month</th>
+			<th></th>
+		</tr>
+		<tr>
+			<td >3151</td>
+			<td style="padding-right:0;">125</td>
+			<td style="padding-right:0;"><img style="height:40%;width:100%" src="assets/imgRemoveCart.png" /></td>
+		</tr>
+      </table>
+    </article>
+
+    <section id="demo" style="width:70%;">
+	      <div class="group">
+
+		    <article id="intro" style="width:60%;">
+		      <table>
+			  	<tr>
+			    	<th>Postcode</th>
+			    	<th>Price per Month</th>
+			    	<th>Availablity</th>
+			    	<th></th>
+			  	</tr>
+				<% @postcodes.each do |pc| %>
+					<% if pc %>
+					  <tr>
+
+					    <td width="20%"><%= pc.postcode %></td>
+					    <td width="30%">$<%= pc.price %></td>
+					    <td width="20%">
+					    	<% if pc.isAvailable == 1 %>
+					    		<span style='color:green;font-weight:bold;'>Available</span>
+					    	<% else %>
+					    		<span style='color:red'>Not Available</span>
+					    	<% end %>
+					    </td>
+					    <td width="40%"><img style="height:30%;width:30%" src="assets/imgAddCart.png" /></td>
+					  </tr>
+				  	<%end %>
+				<% end %>
+			</table>
+		      
+		    </article>
+
+		    <section id="demo" style="width:30%;">
+		      <%= render 'findpostcode' %>
+		    </section>
 
 
-<table>
-  <tr>
-    <th>Postcode</th>
-    <th>Near Postcodes</th>
-    <th>Price</th>
-    <th>Available to Buy</th>
-    <th>Max Number of Plumbers</th>
-    <th>Remaining Slots</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-  <% logger.debug "NGC by postcode #{@postcodes}" %>
-<% if @postcodes.kind_of? (Array) %>
-	<% @postcodes.each do |pc| %>
-	  <tr>
-	    <td width="7%"><%= pc.postcode %></td>
-	    <td width="51%"><%= pc.nearPostcodes %></td>
-	    <td width="7%"><%= pc.price %></td>
-	    <td width="7%"><%= pc.isAvailable %></td>
-	    <td width="7%"><%= pc.maxLimit %></td>
-	    <td width="7%"><%= pc.availableLimit %></td>
-	    
-	  </tr>
-	<% end %>
-<% else %>
-	<% logger.debug "MRRRR by postcode #{@postcodes}" %>
-	<tr>
-	    <td width="7%"><%= @postcodes.postcode %></td>
-	    <td width="51%"><%= @postcodes.nearPostcodes %></td>
-	    <td width="7%"><%= @postcodes.price %></td>
-	    <td width="7%"><%= @postcodes.isAvailable %></td>
-	    <td width="7%"><%= @postcodes.maxLimit %></td>
-	    <td width="7%"><%= @postcodes.availableLimit %></td>
-	    
-	  </tr>
-<% end %>
-</table>
+		</div>    
 
-<br />
 
-<%= link_to 'Create New Postcode', admin_postcode_new_path %>
+
+
+    </section>
+
+
+</div>   
+
+<%= render 'promotion' %> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
