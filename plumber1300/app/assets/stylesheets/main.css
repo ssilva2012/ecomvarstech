@@ -2487,3 +2487,34 @@ a.copyrightlinks a:hover {
 		0px 1px 0px rgba(255,255,255,1);
 }
 
+
+#feedback { 
+	height: 1150px; 
+	width: 1200px; 
+	position: fixed; 
+	top: 50%; 
+	z-index: 1000;
+	transform: rotate(-270deg);
+	-webkit-transform: rotate(-270deg); 
+	-moz-transform: rotate(-270deg); 
+	-o-transform: rotate(-270deg); 
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
+#feedback a { 
+	display: block; 
+	background: #f00; 
+	height: 15px; 
+	width: 70px; 
+	padding: 8px 16px;
+	color: #fff; 
+	font-family: Arial, sans-serif; 
+	font-size: 17px; 
+	font-weight: bold; 
+	text-decoration: none; 
+	border-bottom: solid 1px #333; border-left: solid 1px #333; border-right: solid 1px #fff;
+}
+
+#feedback a:hover { 
+	background: #06c; 
+}
