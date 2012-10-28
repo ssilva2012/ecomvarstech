@@ -10,24 +10,34 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label 'Postcode' %><br />
-    <%= f.number_field :postcode, :value => 3000, :in => 1000...10000%>
-  </div>
-  <div class="field">
-    <%= f.label 'Selling Price' %><br />
-    <%= f.text_field :price %>
-  </div>
-  <div class="field">
-    <%= f.label 'Available to Buy' %><br />
-    <%= f.number_field :isAvailable, :value => 1, :in => 0...2%>
-  </div>
-  <div class="field">
-    <%= f.label 'Max Number of Plumbers' %><br />
-    <%= f.number_field :maxLimit, :value => 1, :in => 1...11%>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<table>
+  <tr>
+    <td width="40%" align="right"><%= f.label 'Postcode' %></td>
+    <td width="40%" align="left"><%= f.text_field :postcode%></td>
+  </tr>
+  <tr>
+    <td width="40%" align="right" ><%= f.label 'Near Postcodes(Separated by space)' %></td>
+    <td align="left"><%= f.text_field :nearPostcodes%></td>
+  </tr>
+  <tr>
+    <td width="40%" align="right" ><%= f.label 'Selling Price' %></td>
+    <td align="left"><%= f.text_field :price %></td>
+  </tr>
+  <tr>
+    <td width="40%" align="right" ><%= f.label 'Available to Buy' %></td>
+    <td align="left"><%= f.check_box :isAvailable%></td>
+  </tr>
+  <tr>
+    <td width="40%" align="right" ><%= f.label 'Max Number of Plumbers' %></td>
+    <td align="left"><%= f.select :maxLimit, [[1,1], [2, 2], [3, 3], [4, 4]]%></td>
+  </tr>
+  <tr>
+    <td width="40%" align="right" ><%= f.label 'Available Limit' %></td>
+    <td align="left"><%= f.select :availableLimit, [[1,1], [2, 2], [3, 3], [4, 4]]%></td>
+  </tr>
+  <tr>
+    <td width="40%" align="right"> </td>
+    <td align="left"><%= f.submit %></td>
+  </tr>
+</table>
 <% end %>

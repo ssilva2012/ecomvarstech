@@ -1,4 +1,8 @@
 Plumber1300::Application.routes.draw do
+  get "postcode_cart/index"
+
+  resources :postcode_suburbs
+
   resources :feedbacks
 
   get "static_pages/home"
@@ -11,7 +15,7 @@ Plumber1300::Application.routes.draw do
   get "static_pages/advertising"
   get "static_pages/howitworks"
   get "static_pages/callrates"
-  get "static_pages/fineprint"  
+  get "static_pages/fineprint" 
   
 
   resources :suppliers
@@ -71,7 +75,7 @@ Plumber1300::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'static_pages#home'
 
   # See how all your routes lay out with "rake routes"
 
@@ -79,11 +83,14 @@ Plumber1300::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
 
-  #admin mapping
+  # admin mapping
   get 'admin/postcode' => 'postcodes#index'
   get 'admin/postcode/new' => 'postcodes#new'
   get 'admin/postcode/:id/edit/' => 'postcodes#edit'
-
+  get 'admin/postcodesuburbs' => 'postcode_suburbs#index'
+  get 'admin/postcodesuburbs/new' => 'postcode_suburbs#new'
+  get 'admin/postcodesuburbs/:id/edit/' => 'postcode_suburbs#edit'
+  
   get 'admin/user' => 'users#index'
   get 'admin/user/new' => 'users#new'
   get 'admin/user/:id/edit/' => 'users#edit'
@@ -92,14 +99,18 @@ Plumber1300::Application.routes.draw do
   get 'admin/suppliers' => 'suppliers#index'
   get 'admin/suppliers/new' => 'suppliers#new'
   get 'admin/feedback' => 'feedbacks#index'
-
   
   #static pages mapping
   get 'home' => 'static_pages#home'
+  get 'privacy' => 'static_pages#privacy'
+  get 'serviceterms' => 'static_pages#serviceterms'
+  get 'advertisehere' => 'static_pages#advertisehere'
+  get 'refund' => 'static_pages#refund'
   get 'aboutus' => 'static_pages#aboutus'
   get 'contactus' => 'static_pages#contactus'
   get 'diytutorials' => 'static_pages#diytutorials'
   get 'faq' => 'static_pages#faq'
+  get '/findPostcode' => 'postcodes#findpostcode'
 
   #plumber pages mapping
   get '/plumber/faq' => 'static_pages#faqplumber'
@@ -109,9 +120,8 @@ Plumber1300::Application.routes.draw do
   get '/plumber/callrates' => 'static_pages#callrates'
   get '/plumber/fineprint' => 'static_pages#fineprint'
 
-
   get 'newuser' => 'users#newUser'
-  post 'signup' => 'users#signUp'  
+  post 'signup' => 'users#signUp'
   
   
 

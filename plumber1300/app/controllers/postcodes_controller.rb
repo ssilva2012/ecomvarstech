@@ -17,7 +17,7 @@ class PostcodesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: postcodes_url }
+      format.json { render json: admin_postcode_url }
     end
   end
 
@@ -28,7 +28,7 @@ class PostcodesController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: postcodes_url }
+      format.json { render json: admin_postcode_url }
     end
   end
 
@@ -44,8 +44,8 @@ class PostcodesController < ApplicationController
 
     respond_to do |format|
       if @postcode.save
-        format.html { redirect_to postcodes_url, notice: 'Postcode was successfully created.' }
-        format.json { render json: postcodes_url, status: :created, location: postcodes_url }
+        format.html { redirect_to admin_postcode_url, notice: 'Postcode was successfully created.' }
+        format.json { render json: admin_postcode_url, status: :created, location: postcodes_url }
       else
         format.html { render action: "new" }
         format.json { render json: @postcode.errors, status: :unprocessable_entity }
@@ -60,7 +60,7 @@ class PostcodesController < ApplicationController
 
     respond_to do |format|
       if @postcode.update_attributes(params[:postcode])
-        format.html { redirect_to postcodes_url, notice: 'Postcode was successfully updated.' }
+        format.html { redirect_to admin_postcode_url, notice: 'Postcode was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -76,8 +76,55 @@ class PostcodesController < ApplicationController
     @postcode.destroy
 
     respond_to do |format|
-      format.html { redirect_to postcodes_url }
+      format.html { redirect_to admin_postcode_url }
       format.json { head :no_content }
     end
   end
+
+
+  def findpostcode
+    @postcodeSuburbs = PostcodeSuburb.find_by_postcode(params['postcode'])
+    if @postcodeSuburbs
+      postcodeValue = 0
+      if @postcodeSuburbs.kind_of? (Array)
+        postcodeValue = @postcodeSuburbs[0].postcode
+      else
+        postcodeValue = @postcodeSuburbs.postcode
+      end
+      logger.debug "near by postcode #{postcodeValue}"
+      @postcode = Postcode.find_by_postcode(postcodeValue)
+      @postcodes= Array.new(10)
+      postcodeCount = 0;
+
+      if(@postcode)
+        @postcodes[postcodeCount] = @postcode  
+        postcodeCount = postcodeCount + 1   
+
+        if(@postcode.nearPostcodes)
+          nearPostcodes = @postcode.nearPostcodes.split(",")
+          nearPostcodes.each{ |p|
+            @postcode = Postcode.find_by_postcode(p)
+            if postcodeCount < 10
+              @postcodes[postcodeCount] = @postcode
+              postcodeCount = postcodeCount + 1     
+            end
+          }
+        end
+      else
+        respond_to do |format|
+          format.html { redirect_to plumber_home_path }
+        end
+
+      end
+
+    else
+      logger.debug "No postcode found #{postcodeValue}"
+      respond_to do |format|
+          format.html { redirect_to plumber_home_path }
+      end
+
+    end
+
+  end
+
 end

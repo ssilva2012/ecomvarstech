@@ -44,6 +44,7 @@ class FeedbacksController < ApplicationController
 
     respond_to do |format|
       if @feedback.save
+        UserMailer.customer_feedback(@feedback).deliver
         format.html { redirect_to home_path, notice: 'Feedback was successfully created.' }
         format.json { render json: @feedback, status: :created, location: @feedback }
       else
