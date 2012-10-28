@@ -83,6 +83,7 @@ class PostcodesController < ApplicationController
 
 
   def findpostcode
+    logger.debug "Start Find postcode"
     @postcodeSuburbs = PostcodeSuburb.find_by_postcode(params['postcode'])
     if @postcodeSuburbs
       postcodeValue = 0
@@ -110,20 +111,14 @@ class PostcodesController < ApplicationController
             end
           }
         end
-      else
-        respond_to do |format|
-          format.html { redirect_to plumber_home_path }
-        end
-
       end
 
     else
       logger.debug "No postcode found #{postcodeValue}"
-      respond_to do |format|
-          format.html { redirect_to plumber_home_path }
-      end
-
     end
+
+    @carts = Cart.find_by_cart_id(3)
+    logger.debug "Carts Created #{@carts}"
 
   end
 

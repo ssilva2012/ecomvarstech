@@ -3,50 +3,56 @@
 <div class="group" style="border-right-color:black;">
 
     <article id="intro" style="width:20%;">
-      <table>
-      	<tr>
-	      	<th>Postcode</th>
-			<th>Price/Month</th>
-			<th></th>
-		</tr>
-		<tr>
-			<td >3151</td>
-			<td style="padding-right:0;">125</td>
-			<td style="padding-right:0;"><img style="height:40%;width:100%" src="assets/imgRemoveCart.png" /></td>
-		</tr>
-      </table>
+    	<% if @carts %>
+	      <table>
+	      	<tr>
+		      	<th>Postcode</th>
+				<th>Price/Month</th>
+				<th></th>
+			</tr>
+			<tr>
+				<td width="20%" id="postcode"><%= @carts.postcode %></td>
+				<td width="30%" id="price">$<%= @carts.price %></td>
+			</tr>
+				
+	      </table>
+	    <% end %>
     </article>
 
     <section id="demo" style="width:70%;">
 	      <div class="group">
 
 		    <article id="intro" style="width:60%;">
-		      <table>
-			  	<tr>
-			    	<th>Postcode</th>
-			    	<th>Price per Month</th>
-			    	<th>Availablity</th>
-			    	<th></th>
-			  	</tr>
-				<% @postcodes.each do |pc| %>
-					<% if pc %>
-					  <tr>
+		    	<% if @postcodes %>
+			      <table>
+				  	<tr>
+				    	<th>Postcode</th>
+				    	<th>Price per Month</th>
+				    	<th>Availablity</th>
+				    	<th></th>
+				  	</tr>
+					<% @postcodes.each do |pc| %>
+						<% if pc %>
+						  <tr>
 
-					    <td width="20%"><%= pc.postcode %></td>
-					    <td width="30%">$<%= pc.price %></td>
-					    <td width="20%">
-					    	<% if pc.isAvailable == 1 %>
-					    		<span style='color:green;font-weight:bold;'>Available</span>
-					    	<% else %>
-					    		<span style='color:red'>Not Available</span>
-					    	<% end %>
-					    </td>
-					    <td width="40%"><img style="height:30%;width:30%" src="assets/imgAddCart.png" /></td>
-					  </tr>
-				  	<%end %>
+						    <td width="20%" id="postcode"><%= pc.postcode %></td>
+						    <td width="30%" id="price">$<%= pc.price %></td>
+						    <td width="20%">
+						    	<% if pc.isAvailable == 1 %>
+						    		<span style='color:green;font-weight:bold;'>Available</span>
+						    	<% else %>
+						    		<span style='color:red'>Not Available</span>
+						    	<% end %>
+						    </td>
+						    <% if pc.isAvailable == 1 %>
+						    	<td width="40%"><%= button_to 'Add to Cart', addCartItem_path(postcode: pc.postcode) %></td>
+						    <% end %>
+						    <!--<td width="40%"><img style="height:30%;width:30%" src="assets/imgAddCart.png" /></td>-->
+						  </tr>
+					  	<%end %>
+					<% end %>
+				  </table> 
 				<% end %>
-			</table>
-		      
 		    </article>
 
 		    <section id="demo" style="width:30%;">
