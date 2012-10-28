@@ -52,7 +52,7 @@ html {
 	overflow-y: scroll; /* Force a scrollbar in non-IE */
 	-webkit-text-size-adjust: 100%; /* Prevent iOS text size adjust on orientation change without disabling user zoom */
 	-ms-text-size-adjust: 100%;
-	background: #fff0d6;
+	background: white;
 }
 
 body {
@@ -70,7 +70,7 @@ body:before {
 	height: 10px;
 	left: 0;
 	width: 100%;
-	background: #582489;
+	background: white;
 	content: "";
 }
 
@@ -246,12 +246,10 @@ dl dd {
 a, a:visited {
 	text-decoration: none;
 	color: #777;
-	border-bottom: 2px solid #aaa;
 }
 
 a:hover {
 	color: black;
-	border-bottom: 2px solid #582489;
 }
 
 a:focus {
@@ -952,7 +950,7 @@ html {
 	overflow-y: scroll; /* Force a scrollbar in non-IE */
 	-webkit-text-size-adjust: 100%; /* Prevent iOS text size adjust on orientation change without disabling user zoom */
 	-ms-text-size-adjust: 100%;
-	background: #fff0d6;
+	background: white;
 }
 
 body {
@@ -970,7 +968,17 @@ body:before {
 	height: 10px;
 	left: 0;
 	width: 100%;
-	background: #582489;
+	background: white;
+	content: "";
+}
+
+body:after {
+	position: absolute;
+	top: 0;
+	height: 10px;
+	left: 0;
+	width: 100%;
+	background: white;
 	content: "";
 }
 
@@ -1147,12 +1155,11 @@ dl dd {
 a, a:visited {
 	text-decoration: none;
 	color: #777;
-	border-bottom: 2px solid #aaa;
 }
 
 a:hover {
 	color: black;
-	border-bottom: 2px solid #582489;
+
 }
 
 a:focus {
@@ -1668,7 +1675,7 @@ html {
 	overflow-y: scroll; /* Force a scrollbar in non-IE */
 	-webkit-text-size-adjust: 100%; /* Prevent iOS text size adjust on orientation change without disabling user zoom */
 	-ms-text-size-adjust: 100%;
-	background: #fff0d6;
+	background: white;
 }
 
 body {
@@ -1686,7 +1693,7 @@ body:before {
 	height: 10px;
 	left: 0;
 	width: 100%;
-	background: #582489;
+	background: white;
 	content: "";
 }
 
@@ -1864,12 +1871,11 @@ dl dd {
 a, a:visited {
 	text-decoration: none;
 	color: #777;
-	border-bottom: 2px solid #aaa;
 }
 
 a:hover {
 	color: black;
-	border-bottom: 2px solid #582489;
+
 }
 
 a:focus {
@@ -2422,6 +2428,31 @@ figure {
 	text-shadow:1px 1px 0 #d244a6;
 }
 
+
+#copyright{
+		text-align: center; 
+		font-family:verdana;
+        font-size:.85em;
+        color:#32535C;
+        text-decoration:none;
+        display:block;
+        padding-top: 1em;
+        
+}
+
+a.copyrightlinks,div.copyrightlinks{
+		font-family:verdana;
+        font-size:.85em;
+        float:left;
+        color:#32535C;
+        text-decoration:none;
+        display:block;
+        text-align: center;
+}
+
+a.copyrightlinks a:hover {
+		color:white;
+}
 
 .subscribeButton {
 	font-family: Arial, Helvetica, sans-serif;
