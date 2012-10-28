@@ -1,4 +1,6 @@
 Plumber1300::Application.routes.draw do
+  resources :carts
+
   get "postcode_cart/index"
 
   resources :postcode_suburbs
@@ -111,6 +113,7 @@ Plumber1300::Application.routes.draw do
   get 'diytutorials' => 'static_pages#diytutorials'
   get 'faq' => 'static_pages#faq'
   get '/findPostcode' => 'postcodes#findpostcode'
+  post '/addCartItem' => 'carts#addCartItem'
 
   #plumber pages mapping
   get '/plumber/faq' => 'static_pages#faqplumber'
