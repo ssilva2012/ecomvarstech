@@ -1,0 +1,46 @@
+<h1>Listing feedback_shorts</h1>
+
+<table>
+  <tr>
+    <th>how you found</th>
+    <th>Arrived when said</th>
+    <th>Kept me Informed</th>
+    <th>Friendly</th>
+    <th>Pricing</th>
+    <th>Neat and Tidy appearance</th>
+    <th>Clean up after job</th>
+    <th>Recommend us</th>
+    <th>Reference Name</th>
+    <th>Reference Info</th>
+    <th>Name</th>
+    <th>Address</th>
+    <th>Postcode</th>
+    <th>Comment</th>
+
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @feedback_shorts.each do |feedback_short| %>
+  <tr>
+    <td><%= feedback_short.qut1 %></td>
+    <td><%= feedback_short.qut2 %></td>
+    <td><%= feedback_short.qut3 %></td>
+    <td><%= feedback_short.qut4 %></td>
+    <td><%= feedback_short.qut5 %></td>
+    <td><%= feedback_short.qut6 %></td>
+    <td><%= feedback_short.qut7 %></td>
+    <td><%= feedback_short.qut8 %></td>
+    <td><%= feedback_short.qut9 %></td>
+    <td><%= feedback_short.qut10 %></td>
+    <td><%= feedback_short.qut11 %></td>
+    <td><%= feedback_short.custName %></td>
+    <td><%= feedback_short.custAddress %></td>
+    <td><%= feedback_short.jobPostcode %></td>
+    <td><%= feedback_short.comment %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />

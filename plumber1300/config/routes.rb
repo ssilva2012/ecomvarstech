@@ -1,4 +1,6 @@
 Plumber1300::Application.routes.draw do
+  resources :feedback_shorts
+
   resources :carts
 
   get "postcode_cart/index"
@@ -100,7 +102,7 @@ Plumber1300::Application.routes.draw do
   get 'admin/product/new' => 'products#new'
   get 'admin/suppliers' => 'suppliers#index'
   get 'admin/suppliers/new' => 'suppliers#new'
-  get 'admin/feedback' => 'feedbacks#index'
+  get 'admin/feedback' => 'feedback_shorts#index'
   
   #static pages mapping
   get 'home' => 'static_pages#home'
@@ -125,6 +127,7 @@ Plumber1300::Application.routes.draw do
 
   get 'newuser' => 'users#newUser'
   post 'signup' => 'users#signUp'
+  get 'feedback' => 'feedback_shorts#new'
   
   
 

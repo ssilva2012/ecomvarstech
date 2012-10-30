@@ -83,6 +83,7 @@ class PostcodesController < ApplicationController
 
 
   def findpostcode
+    session[:sanj] = 125
     logger.debug "Start Find postcode"
     @postcodeSuburbs = PostcodeSuburb.find_by_postcode(params['postcode'])
     if @postcodeSuburbs

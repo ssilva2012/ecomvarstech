@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Qut1:</b>
+  <%= @feedback_short.qut1 %>
+</p>
+
+<p>
+  <b>Qut2:</b>
+  <%= @feedback_short.qut2 %>
+</p>
+
+<p>
+  <b>Qut3:</b>
+  <%= @feedback_short.qut3 %>
+</p>
+
+<p>
+  <b>Qut4:</b>
+  <%= @feedback_short.qut4 %>
+</p>
+
+<p>
+  <b>Qut5:</b>
+  <%= @feedback_short.qut5 %>
+</p>
+
+<p>
+  <b>Custname:</b>
+  <%= @feedback_short.custName %>
+</p>
+
+<p>
+  <b>Custaddress:</b>
+  <%= @feedback_short.custAddress %>
+</p>
+
+<p>
+  <b>Jobpostcode:</b>
+  <%= @feedback_short.jobPostcode %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%= @feedback_short.comment %>
+</p>
+
+
+<%= link_to 'Edit', edit_feedback_short_path(@feedback_short) %> |
+<%= link_to 'Back', feedback_shorts_path %>
