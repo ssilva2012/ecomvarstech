@@ -87,6 +87,20 @@ class UsersController < ApplicationController
     end
   end
 
+  def signIn
+    @user = User.find_by_email(params[:email])
+
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to postcodes_url, notice: 'User was successfully created.' }
+        format.json { render json: @user, status: :created, location: @user }
+      else
+        format.html { render action: "newUser" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # PUT /users/1
   # PUT /users/1.json
   def update

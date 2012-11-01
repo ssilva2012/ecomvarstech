@@ -1,4 +1,10 @@
 Plumber1300::Application.routes.draw do
+  get "sessions/new"
+
+  get "sessions/create"
+
+  get "sessions/destroy"
+
   resources :feedback_shorts
 
   resources :carts
@@ -29,6 +35,12 @@ Plumber1300::Application.routes.draw do
   resources :users
 
   resources :postcodes
+
+  controller :sessions do
+    get 'login' => :new
+    post 'login' => :create
+    get 'logout' => :destroy
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
