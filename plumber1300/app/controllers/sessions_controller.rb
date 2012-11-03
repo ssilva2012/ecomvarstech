@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
 	user = User.find_by_email(params[:email])
 	if user and user.authenticate(params[:password])
 		session[:user_name] = user.lastName
+    session[:email] = user.email
 		redirect_to home_path
 	else
 		redirect_to '/login', alert: "Invalid user/password combination"

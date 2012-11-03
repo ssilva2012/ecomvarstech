@@ -83,9 +83,16 @@ class PostcodesController < ApplicationController
 
 
   def findpostcode
-    session[:sanj] = 125
-    logger.debug "Start Find postcode"
-    @postcodeSuburbs = PostcodeSuburb.find_by_postcode(params['postcode'])
+    postcodeValue = 0
+    if session[:postcode] and params['postcode'] == ''
+      postcodeValue = session[:postcode]
+    else
+      postcodeValue = params['postcode'] 
+    end
+    
+    session[:postcode] = params['postcode'] 
+
+    @postcodeSuburbs = PostcodeSuburb.find_by_postcode(postcodeValue)
     if @postcodeSuburbs
       postcodeValue = 0
       if @postcodeSuburbs.kind_of? (Array)
@@ -118,7 +125,7 @@ class PostcodesController < ApplicationController
       logger.debug "No postcode found #{postcodeValue}"
     end
 
-    @carts = Cart.find_by_cart_id(3)
+    @carts = Cart.find_by_cart_id(session[:session_id])
     logger.debug "Carts Created #{@carts}"
 
   end

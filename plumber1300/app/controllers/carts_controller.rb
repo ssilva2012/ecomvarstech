@@ -82,13 +82,13 @@ class CartsController < ApplicationController
   end
 
   def addCartItem
-    logger.debug("Add cart hits")
     current_cart
     @cart = Cart.new
-    @cart.cart_id = 3 #session[:cart_id]
+    @cart.cart_id = session[:session_id]
     logger.debug("Added cart session Id #{@cart.cart_id}")
-    @cart.email ="sanj.silva@gmail.com"
+    @cart.email = session[:email]
     @cart.postcode = params["postcode"]
+    session[:postcode] = params["postcode"]
     @cart.price = Postcode.find_by_postcode(params["postcode"]).price
 
     respond_to do |format|
