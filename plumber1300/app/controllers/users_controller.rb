@@ -55,7 +55,6 @@ class UsersController < ApplicationController
       if @user.save
         if(params[:signup])
           UserMailer.registration_confirmation(@user).deliver
-          UserMailer.express_intrest(@user).deliver
           format.html { redirect_to home_path, notice: 'User was successfully created.' }
           format.json { render json: @user, status: :created, location: @user }
         else

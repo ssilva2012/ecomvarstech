@@ -1,4 +1,6 @@
 Plumber1300::Application.routes.draw do
+  resources :express_intersts
+
   get "sessions/new"
 
   get "sessions/create"
@@ -127,7 +129,9 @@ Plumber1300::Application.routes.draw do
   get 'diytutorials' => 'static_pages#diytutorials'
   get 'faq' => 'static_pages#faq'
   get '/findPostcode' => 'postcodes#findpostcode'
-  post '/addCartItem' => 'carts#addCartItem'
+  get '/addCartItem' => 'carts#addCartItem'
+  get '/removeCartItem' => 'carts#removeCartItem'
+  post '/submitCart' => 'carts#submitCart'
 
   #plumber pages mapping
   get '/plumber/faq' => 'static_pages#faqplumber'
