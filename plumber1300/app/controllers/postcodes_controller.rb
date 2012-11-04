@@ -83,8 +83,20 @@ class PostcodesController < ApplicationController
 
 
   def findpostcode
-    logger.debug "Start Find postcode"
-    @postcodeSuburbs = PostcodeSuburb.find_by_postcode(params['postcode'])
+    sessionPostcodes = session[:cart_postcodes]
+    logger.debug " findpostcode Session POCTCODE #{session[:cart_postcodes]}"
+    postcodeValue = 0
+    if session[:postcode]  and !params['postcode']
+      postcodeValue = session[:postcode]
+    else
+      postcodeValue = params['postcode'] 
+    end
+    
+    if !params['postcode']
+      session[:postcode] = params['postcode'] 
+    end
+
+    @postcodeSuburbs = PostcodeSuburb.find_by_postcode(postcodeValue)
     if @postcodeSuburbs
       postcodeValue = 0
       if @postcodeSuburbs.kind_of? (Array)
@@ -98,28 +110,57 @@ class PostcodesController < ApplicationController
       postcodeCount = 0;
 
       if(@postcode)
-        @postcodes[postcodeCount] = @postcode  
-        postcodeCount = postcodeCount + 1   
+        if !sessionPostcodes or !sessionPostcodes.include? postcodeValue.to_s
+          @postcodes[postcodeCount] = @postcode 
+          postcodeCount = postcodeCount + 1   
+        end
 
         if(@postcode.nearPostcodes)
           nearPostcodes = @postcode.nearPostcodes.split(",")
           nearPostcodes.each{ |p|
-            @postcode = Postcode.find_by_postcode(p)
-            if postcodeCount < 10
-              @postcodes[postcodeCount] = @postcode
-              postcodeCount = postcodeCount + 1     
+            if !sessionPostcodes or !sessionPostcodes.include? p
+              @postcode = Postcode.find_by_postcode(p)
+              if postcodeCount < 10
+                @postcodes[postcodeCount] = @postcode
+                postcodeCount = postcodeCount + 1     
+              end
             end
           }
-        end
       end
 
     else
       logger.debug "No postcode found #{postcodeValue}"
     end
 
-    @carts = Cart.find_by_cart_id(3)
-    logger.debug "Carts Created #{@carts}"
+    @carts= Array.new(20)
+    
+    setupFee = 1
+    lineItemIndex = 0
+    @initSetup = 0
+    @perMonth = 0
+    if sessionPostcodes
+        sessionPostcodes.split(",").each { |spc|
+          pc = Postcode.find_by_postcode(spc)
+          if pc
+            cart = Cart.new
+            cart.postcode = pc.postcode
+            cart.email = session[:email]
+            cart.price = pc.price
+            @perMonth = @perMonth + pc.price
+            if setupFee <= 2
+              cart.cart_id = 500
+              @initSetup = @initSetup  + 500
+              setupFee = setupFee + 1
+            else
+              cart.cart_id = 250
+              @initSetup = @initSetup  + 250
+            end
+            @carts[lineItemIndex] = cart
+            lineItemIndex = lineItemIndex + 1
+          end
+        }
+      end
+    end
 
   end
-
 end

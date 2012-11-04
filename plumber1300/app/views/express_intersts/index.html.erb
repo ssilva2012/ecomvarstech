@@ -1,0 +1,27 @@
+<h1>Listing express_intersts</h1>
+
+<table>
+  <tr>
+    <th>Created Date Time</th>
+    <th>Email</th>
+    <th>Postcode</th>
+    <th>Available</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @express_intersts.each do |express_interst| %>
+  <tr>
+    <td><%= express_interst.created_at %></td>
+    <td><%= express_interst.email %></td>
+    <td><%= express_interst.postcode %></td>
+    <td><%= link_to 'Approve', express_interst %></td>
+    <td><%= link_to 'Reject', edit_express_interst_path(express_interst) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Express interst', new_express_interst_path %>

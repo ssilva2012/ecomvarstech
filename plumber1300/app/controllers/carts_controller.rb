@@ -82,21 +82,55 @@ class CartsController < ApplicationController
   end
 
   def addCartItem
-    logger.debug("Add cart hits")
-    current_cart
-    @cart = Cart.new
-    @cart.cart_id = 3 #session[:cart_id]
-    logger.debug("Added cart session Id #{@cart.cart_id}")
-    @cart.email ="sanj.silva@gmail.com"
-    @cart.postcode = params["postcode"]
-    @cart.price = Postcode.find_by_postcode(params["postcode"]).price
-
+    session[:postcode] = params["pc"]
+    cartpostcodes = session[:cart_postcodes] 
+    logger.debug " addCartItem 1 Session POCTCODE #{session[:cart_postcodes]}"
+    if !cartpostcodes
+      cartpostcodes = ""
+    end
+    cartpostcodes =cartpostcodes + "," + params["pc"]
+    session[:cart_postcodes] = cartpostcodes
+    logger.debug " addCartItem 2 Session POCTCODE #{session[:cart_postcodes]}"
     respond_to do |format|
-      if @cart.save
-          format.html { redirect_to findPostcode_path, notice: 'Cart was successfully created.' }
-          format.json { render json: @cart, status: :created, location: @cart }
+      format.html { redirect_to findPostcode_path, notice: 'Cart was successfully created.' }
+      format.json { render json: @cart, status: :created, location: @cart }
+    end
+  end
+
+  def removeCartItem
+    cartpostcodes = session[:cart_postcodes] 
+    session[:postcode] = params["pc"]
+    if cartpostcodes
+      cartpostcodes[params["pc"]] = ''
+      session[:cart_postcodes] = cartpostcodes
+    end   
+    logger.debug " removeCartItem Session POCTCODE #{session[:cart_postcodes]}"
+    respond_to do |format|
+      format.html { redirect_to findPostcode_path, notice: 'Cart was successfully created.' }
+      format.json { render json: @cart, status: :created, location: @cart }
+    end
+  end
+
+  def submitCart
+    if session[:cart_postcodes] and session[:email]
+      logger.debug "Submit cart Dome 3"
+      cartpostcodes = session[:cart_postcodes] 
+      cartpostcodes.split(",").each { |epc|
+        if epc and epc != ""
+          postcodeInt = ExpressInterst.new
+          postcodeInt.email = session[:email]
+          postcodeInt.postcode = epc
+
+          postcodeInt.save
+        end
+      }
+      @user = User.find_by_email(session[:email])
+      UserMailer.express_intrest(@user, session[:cart_postcodes]).deliver
+      UserMailer.intrest_plumber(@user, session[:cart_postcodes]).deliver
+      respond_to do |format|
+        format.html { redirect_to plumber_home_path, notice: 'Cart was successfully created.' }
+        format.json { render json: @cart, status: :created, location: @cart }
       end
     end
-
   end
 end

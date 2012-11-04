@@ -90,7 +90,11 @@
 			<%= image_tag("logo.jpg", :alt => "Logo") %>
 
 		<!--<div id="feedback">
+<<<<<<< HEAD
 			<a href="/feedbacks/new">Feedback</a>
+=======
+			<a href="/feedback">Feedback</a>
+>>>>>>> 96fa1ae824beab9730223e113ce95a9eb0c392b1
 		</div>-->
 
 
@@ -150,7 +154,12 @@
 					<a  href="/privacy">Privacy |</a> 
 					<a  href="/serviceterms">Terms Of Service |</a> 
 					<a  href="/advertisehere">Advertise Here |</a> 
-					<a  href="/refund">Returns &amp; Refunds</a>
+					<a  href="/refund">Returns &amp; Refunds |</a>
+					<% if session[:user_name] %>
+						<a  href="/logout">Logout</a>
+					<% else %>
+						<a  href="/login">Login</a>
+					<% end %>
 				</div>
 		</div>
 

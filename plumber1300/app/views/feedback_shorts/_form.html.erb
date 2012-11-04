@@ -1,0 +1,98 @@
+<%= form_for(@feedback_short) do |f| %>
+  <% if @feedback_short.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@feedback_short.errors.count, "error") %> prohibited this feedback_short from being saved:</h2>
+
+      <ul>
+      <% @feedback_short.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <table>
+    <tr style="padding-top: 1em;">
+      <td align="right">Please tell us how you found us?</td>
+      <td align="left">
+        <%= f.select :qut1, [['Direct Mailer', 'Direct Mailer'], ['Google', 'Google'], ['Radio', 'Radio'], ['Recommendation', 'Recommendation'], ['Telemarketing', 'Telemarketing'], ['Other ', 'Other']]%>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><b>Please take the time to rate these aspects of our business</b></td>
+    </tr>
+    <tr>
+      <td align="right">Arrived when said</td>
+      <td align="left"><%= f.select :qut2, [['1.Yes or Improvement required', '1.Yes or Improvement required'], ['2.Smiley Face, Straight Face, Happy Face', '2.Smiley Face, Straight Face, Happy Face'], ['3.As agreed, Within acceptable range, Wasn’t expecting this', '3.As agreed, Within acceptable range, Wasn’t expecting this'], ['4.Professional looking,  Acceptable appearance', '4.Professional looking,  Acceptable appearance'], ['5.Didn’t tidy up after himself,  Left job tidy,  Fantastic plumber', '5.Didn’t tidy up after himself,  Left job tidy,  Fantastic plumber']]%>
+      </td>      
+    </tr>
+    <tr>
+      <td align="right">Kept me Informed</td>
+      <td align="left"><%= f.select :qut3, [['1.Yes or Improvement required', '1.Yes or Improvement required'], ['2.Smiley Face, Straight Face, Happy Face', '2.Smiley Face, Straight Face, Happy Face'], ['3.As agreed, Within acceptable range, Wasn’t expecting this', '3.As agreed, Within acceptable range, Wasn’t expecting this'], ['4.Professional looking,  Acceptable appearance', '4.Professional looking,  Acceptable appearance'], ['5.Didn’t tidy up after himself,  Left job tidy,  Fantastic plumber', '5.Didn’t tidy up after himself,  Left job tidy,  Fantastic plumber']]%>
+      </td>      
+    </tr>
+    <tr>
+      <td align="right">Friendly</td>
+      <td align="left"><%= f.select :qut4, [['1.Yes or Improvement required', '1.Yes or Improvement required'], ['2.Smiley Face, Straight Face, Happy Face', '2.Smiley Face, Straight Face, Happy Face'], ['3.As agreed, Within acceptable range, Wasn’t expecting this', '3.As agreed, Within acceptable range, Wasn’t expecting this'], ['4.Professional looking,  Acceptable appearance', '4.Professional looking,  Acceptable appearance'], ['5.Didn’t tidy up after himself,  Left job tidy,  Fantastic plumber', '5.Didn’t tidy up after himself,  Left job tidy,  Fantastic plumber']]%>
+      </td>      
+    </tr>
+    <tr>
+      <td align="right">Pricing</td>
+      <td align="left"><%= f.select :qut5, [['1.Yes or Improvement required', '1.Yes or Improvement required'], ['2.Smiley Face, Straight Face, Happy Face', '2.Smiley Face, Straight Face, Happy Face'], ['3.As agreed, Within acceptable range, Wasn’t expecting this', '3.As agreed, Within acceptable range, Wasn’t expecting this'], ['4.Professional looking,  Acceptable appearance', '4.Professional looking,  Acceptable appearance'], ['5.Didn’t tidy up after himself,  Left job tidy,  Fantastic plumber', '5.Didn’t tidy up after himself,  Left job tidy,  Fantastic plumber']]%>
+      </td>      
+    </tr>
+    <tr>
+      <td align="right">Neat and Tidy appearance</td>
+      <td align="left"><%= f.select :qut6, [['1.Yes or Improvement required', '1.Yes or Improvement required'], ['2.Smiley Face, Straight Face, Happy Face', '2.Smiley Face, Straight Face, Happy Face'], ['3.As agreed, Within acceptable range, Wasn’t expecting this', '3.As agreed, Within acceptable range, Wasn’t expecting this'], ['4.Professional looking,  Acceptable appearance', '4.Professional looking,  Acceptable appearance'], ['5.Didn’t tidy up after himself,  Left job tidy,  Fantastic plumber', '5.Didn’t tidy up after himself,  Left job tidy,  Fantastic plumber']]%>
+      </td>      
+    </tr>
+    <tr>
+      <td align="right">Clean up after job</td>
+      <td align="left"><%= f.select :qut7, [['1.Yes or Improvement required', '1.Yes or Improvement required'], ['2.Smiley Face, Straight Face, Happy Face', '2.Smiley Face, Straight Face, Happy Face'], ['3.As agreed, Within acceptable range, Wasn’t expecting this', '3.As agreed, Within acceptable range, Wasn’t expecting this'], ['4.Professional looking,  Acceptable appearance', '4.Professional looking,  Acceptable appearance'], ['5.Didn’t tidy up after himself,  Left job tidy,  Fantastic plumber', '5.Didn’t tidy up after himself,  Left job tidy,  Fantastic plumber']]%>
+      </td>      
+    </tr>
+    <tr>
+      <td align="right">Would you recommend us to a friend / colleague? </td>
+      <td align="left"><%= f.select :qut8, [['No way', 'No way'], ['Maybe, some things need improving', 'Maybe, some things need improving'], ['Yes, I''d definitely recommend 1300plumber.net.au', 'Yes, I''d definitely recommend 1300plumber.net.au']]%></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><b>If you recommend a customer or plumber to use or join 1300Plumber we will send you a gift voucher</b></td>
+    </tr>
+    <tr>
+      <td align="right">Your Reference Name</td>
+      <td align="left"><%= f.text_field :qut9 %></td>
+    </tr>
+    <tr>
+      <td align="right">Your Reference Email/Mobile</td>
+      <td align="left"><%= f.text_field :qut10 %></td>
+    </tr>
+    <tr>
+      <td align="right">Please provide any other criticism or compliments and we will be sure to follow it up</td>
+      <td align="left"><%= f.text_field :qut11 %></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><b>Your Information</b></td>
+    </tr>
+    <tr>
+      <td align="right">Name</td>
+      <td align="left"><%= f.text_field :custName %></td>
+    </tr>
+    <tr>
+      <td align="right">Address</td>
+      <td align="left"><%= f.text_field :custAddress %></td>
+    </tr>
+    <tr>
+      <td align="right">Postcode of the Job</td>
+      <td align="left"><%= f.text_field :jobPostcode %></td>
+    </tr>
+    <tr>
+      <td align="right">Comment</td>
+      <td align="left"><%= f.text_area :comment, :rows => 5, :cols => 60%></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td align="left"><%= submit_tag 'Submit Feedback', :name =>'submit'%></td>
+    </tr>
+  </table>
+<% end %>

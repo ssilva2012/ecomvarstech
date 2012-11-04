@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  qut1: MyString
+  qut2: MyString
+  qut3: MyString
+  qut4: MyString
+  qut5: MyString
+  custName: MyString
+  custAddress: MyString
+  string: MyString
+  custSuburb: MyString
+  jobPostcode: MyString
+  comment: MyText
+
+two:
+  qut1: MyString
+  qut2: MyString
+  qut3: MyString
+  qut4: MyString
+  qut5: MyString
+  custName: MyString
+  custAddress: MyString
+  string: MyString
+  custSuburb: MyString
+  jobPostcode: MyString
+  comment: MyText

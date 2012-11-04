@@ -55,7 +55,6 @@ class UsersController < ApplicationController
       if @user.save
         if(params[:signup])
           UserMailer.registration_confirmation(@user).deliver
-          UserMailer.express_intrest(@user).deliver
           format.html { redirect_to home_path, notice: 'User was successfully created.' }
           format.json { render json: @user, status: :created, location: @user }
         else
@@ -75,6 +74,20 @@ class UsersController < ApplicationController
 
   def signUp
     @user = User.new(params[:user])
+
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to postcodes_url, notice: 'User was successfully created.' }
+        format.json { render json: @user, status: :created, location: @user }
+      else
+        format.html { render action: "newUser" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def signIn
+    @user = User.find_by_email(params[:email])
 
     respond_to do |format|
       if @user.save

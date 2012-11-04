@@ -1,4 +1,14 @@
 Plumber1300::Application.routes.draw do
+  resources :express_intersts
+
+  get "sessions/new"
+
+  get "sessions/create"
+
+  get "sessions/destroy"
+
+  resources :feedback_shorts
+
   resources :carts
 
   get "postcode_cart/index"
@@ -27,6 +37,12 @@ Plumber1300::Application.routes.draw do
   resources :users
 
   resources :postcodes
+
+  controller :sessions do
+    get 'login' => :new
+    post 'login' => :create
+    get 'logout' => :destroy
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -100,7 +116,7 @@ Plumber1300::Application.routes.draw do
   get 'admin/product/new' => 'products#new'
   get 'admin/suppliers' => 'suppliers#index'
   get 'admin/suppliers/new' => 'suppliers#new'
-  get 'admin/feedback' => 'feedbacks#index'
+  get 'admin/feedback' => 'feedback_shorts#index'
   
   #static pages mapping
   get 'home' => 'static_pages#home'
@@ -113,7 +129,9 @@ Plumber1300::Application.routes.draw do
   get 'diytutorials' => 'static_pages#diytutorials'
   get 'faq' => 'static_pages#faq'
   get '/findPostcode' => 'postcodes#findpostcode'
-  post '/addCartItem' => 'carts#addCartItem'
+  get '/addCartItem' => 'carts#addCartItem'
+  get '/removeCartItem' => 'carts#removeCartItem'
+  post '/submitCart' => 'carts#submitCart'
 
   #plumber pages mapping
   get '/plumber/faq' => 'static_pages#faqplumber'
@@ -125,6 +143,7 @@ Plumber1300::Application.routes.draw do
 
   get 'newuser' => 'users#newUser'
   post 'signup' => 'users#signUp'
+  get 'feedback' => 'feedback_shorts#new'
   
   
 
