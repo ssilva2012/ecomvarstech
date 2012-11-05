@@ -2,46 +2,49 @@
 
 <div class="group" style="border-right-color:black;">
 
-    <article id="intro" style="width:35%;">
-    	<% if @carts %>
-	      <table>
-	      	<tr>
-		      	<th>Postcode</th>
-		      	<th>One off setup Fee</th>
-				<th>Price/Month</th>
-				<th></th>
-			</tr>
-			<% @carts.each do |ct| %>
-				<% if ct %>
-					<tr>
-						<td width="20%" id="postcode"><%= ct.postcode %></td>						
-						<td width="30%" id="setupfee">$<%= ct.cart_id %></td>
-						<td width="30%" id="price">$<%= ct.price %></td>
-						<td width="40%">
-				    		<a href='/removeCartItem?pc=<%= ct.postcode %>'><img style="height:30%;width:30%" src="assets/imgRemoveCart.png" /></a>
-				    	</td>
-					</tr>
-				<% end %>
-			<% end %>
-				<tr>
-					<td><b> Total </b></td>
-					<td><b> $<%= @initSetup %> </b></td>
-					<td><b> $<%= @perMonth %> </b></td>
-				</tr>	
-				<tr>
-					<td colspan="2" align="right"><%= button_to 'Express Intrest', submitCart_path %></td>
+    <article id="intro" style="width:30%;">
+    	<% if @initSetup > 0 %>
+	    	<% if @carts %>
+		      <table>
+		      	<tr>
+			      	<th>Postcode</th>
+			      	<th>One off setup Fee</th>
+					<th>Price/Month</th>
+					<th></th>
 				</tr>
-	      </table>
-	      <%= session[:cart_postcodes] %> SSSSSS <%= session[:email] %>
-	      <% else %>
-	      	<h3> Your Cart is empty. Please you search to find postcode</h3>
+				<% @carts.each do |ct| %>
+					<% if ct %>
+						<tr>
+							<td width="20%" id="postcode"><%= ct.postcode %></td>						
+							<td width="30%" id="setupfee">$<%= ct.cart_id %></td>
+							<td width="30%" id="price">$<%= ct.price %></td>
+							<td width="40%">
+					    		<a href='/removeCartItem?pc=<%= ct.postcode %>'><img style="height:30%;width:30%" src="assets/imgRemoveCart.png" /></a>
+					    	</td>
+						</tr>
+					<% end %>
+				<% end %>
+					<tr>
+						<td><b> Total </b></td>
+						<td><b> $<%= @initSetup %> </b></td>
+						<td><b> $<%= @perMonth %> </b></td>
+					</tr>	
+					<tr>
+						<td colspan="2" align="right"><%= button_to 'Express Intrest', submitCart_path %></td>
+					</tr>
+		      </table>
+		      <% else %>
+		      	<h3> Your Cart is empty. Please you search to find postcode</h3>
+		    <% end %>
+		<% else %>
+			<h3> Your Cart is empty.</h3>
 	    <% end %>
     </article>
 
     <section id="demo" style="width:55%;">
 	      <div class="group">
 
-		    <article id="intro" style="width:55%;">
+		    <article id="intro" style="width:50%;">
 		    	<% if @postcodes %>
 			      <table>
 				  	<tr>

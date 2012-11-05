@@ -1,4 +1,6 @@
 Plumber1300::Application.routes.draw do
+  resources :plumber_lists
+
   resources :express_intersts
 
   get "sessions/new"
@@ -144,6 +146,9 @@ Plumber1300::Application.routes.draw do
   get 'newuser' => 'users#newUser'
   post 'signup' => 'users#signUp'
   get 'feedback' => 'feedback_shorts#new'
+
+  post 'approve' => 'express_intersts#approve'
+  post 'reject' => 'express_intersts#reject'
   
   
 

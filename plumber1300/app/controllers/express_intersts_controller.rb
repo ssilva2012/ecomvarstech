@@ -2,11 +2,28 @@ class ExpressInterstsController < ApplicationController
   # GET /express_intersts
   # GET /express_intersts.json
   def index
-    @express_intersts = ExpressInterst.all
+    @express_intersts = ExpressInterst.where("results=?", "P")
+
+    @expressIntersts = Array.new(20)
+
+    if @express_intersts
+        expressCount = 0
+        @express_intersts.each { |intersts|
+          postcode = Postcode.find_by_postcode(intersts.postcode)
+          if postcode.isAvailable == 1
+            intersts.available = "Available"
+          else
+            intersts.available = "Not Available"
+          end
+
+          @expressIntersts[expressCount] = intersts
+          expressCount = expressCount + 1
+        }
+    end
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @express_intersts }
+      format.json { render json: @expressIntersts }
     end
   end
 
@@ -79,5 +96,34 @@ class ExpressInterstsController < ApplicationController
       format.html { redirect_to express_intersts_url }
       format.json { head :no_content }
     end
+  end
+
+  def approve
+    postcode = Postcode.find_by_postcode(params[:postcode])
+    if postcode.isAvailable == 1
+      postcode.availableLimit = postcode.availableLimit - 1
+      if postcode.availableLimit == 0
+        postcode.isAvailable = 0
+      end
+    end
+    timeNow = Time.now
+    postcodeList = PostcodeList.new
+    postcodeList.postcode = postcode.postcode
+    postcodeList.email = params[:email]
+    postcodeList.createdDate = timeNow.localtime
+    postcodeList.expiryDate = 1.years.from_now
+    postcodeList.isSuspended = 0
+
+    postcodeList.save
+    postcode.save
+
+    respond_to do |format|
+      format.html { redirect_to @express_interst, notice: 'Express interst was successfully Accepted.' }
+      format.json { render json: @express_interst, status: :created, location: @express_interst }
+    end
+    
+  end
+
+  def reject
   end
 end

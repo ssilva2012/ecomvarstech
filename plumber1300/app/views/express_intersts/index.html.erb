@@ -5,20 +5,30 @@
     <th>Created Date Time</th>
     <th>Email</th>
     <th>Postcode</th>
-    <th>Available</th>
+    <th>Status</th>
+    <th>Available</th>  
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
-<% @express_intersts.each do |express_interst| %>
-  <tr>
-    <td><%= express_interst.created_at %></td>
-    <td><%= express_interst.email %></td>
-    <td><%= express_interst.postcode %></td>
-    <td><%= link_to 'Approve', express_interst %></td>
-    <td><%= link_to 'Reject', edit_express_interst_path(express_interst) %></td>
-  </tr>
+<% @expressIntersts.each do |express_interst| %>
+  <% if express_interst %>
+    <tr>
+      <td><%= express_interst.created_at %></td>
+      <td name="email"><%= express_interst.email %></td>
+      <td><%= express_interst.postcode %></td>
+      <td><%= express_interst.results %></td>
+      <% if express_interst.available == "Available" %>
+        <td style="color:green"><%= express_interst.available %></td>
+      <% else %>
+        <td style="color:red"><%= express_interst.available %></td>
+      <% end %>
+      <td><%= link_to 'Approve', approve_path(postcode: express_interst.postcode, email: express_interst.email),  method: :post%></td>
+      <td><%= link_to 'Reject', reject_path(postcode: express_interst.postcode, email: express_interst.email),  method: :post %></td>
+      <td><%= link_to 'Delete', express_interst, confirm: 'Do you want to delete this user?', method: :delete %></td>
+    </tr>
+  <% end %>
 <% end %>
 </table>
 

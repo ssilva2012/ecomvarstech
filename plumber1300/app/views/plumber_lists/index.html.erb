@@ -1,0 +1,31 @@
+<h1>Listing plumber_lists</h1>
+
+<table>
+  <tr>
+    <th>Postcode</th>
+    <th>Email</th>
+    <th>Createddate</th>
+    <th>Expirydate</th>
+    <th>Issuspended</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @plumber_lists.each do |plumber_list| %>
+  <tr>
+    <td><%= plumber_list.postcode %></td>
+    <td><%= plumber_list.email %></td>
+    <td><%= plumber_list.createdDate %></td>
+    <td><%= plumber_list.expiryDate %></td>
+    <td><%= plumber_list.isSuspended %></td>
+    <td><%= link_to 'Show', plumber_list %></td>
+    <td><%= link_to 'Edit', edit_plumber_list_path(plumber_list) %></td>
+    <td><%= link_to 'Destroy', plumber_list, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Plumber list', new_plumber_list_path %>

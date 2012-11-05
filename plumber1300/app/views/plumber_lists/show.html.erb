@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Postcode:</b>
+  <%= @plumber_list.postcode %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @plumber_list.email %>
+</p>
+
+<p>
+  <b>Createddate:</b>
+  <%= @plumber_list.createdDate %>
+</p>
+
+<p>
+  <b>Expirydate:</b>
+  <%= @plumber_list.expiryDate %>
+</p>
+
+<p>
+  <b>Issuspended:</b>
+  <%= @plumber_list.isSuspended %>
+</p>
+
+
+<%= link_to 'Edit', edit_plumber_list_path(@plumber_list) %> |
+<%= link_to 'Back', plumber_lists_path %>

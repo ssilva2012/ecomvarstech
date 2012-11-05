@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121103140305) do
+ActiveRecord::Schema.define(:version => 20121105033411) do
 
   create_table "carts", :force => true do |t|
     t.integer  "cart_id"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(:version => 20121103140305) do
     t.string   "postcode"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "available"
+    t.string   "results"
   end
 
   create_table "feedback_shorts", :force => true do |t|
@@ -64,6 +66,16 @@ ActiveRecord::Schema.define(:version => 20121103140305) do
     t.string   "plumberInfo"
     t.datetime "created_at",                     :null => false
     t.datetime "updated_at",                     :null => false
+  end
+
+  create_table "plumber_lists", :force => true do |t|
+    t.string   "postcode"
+    t.string   "email"
+    t.date     "createdDate"
+    t.date     "expiryDate"
+    t.integer  "isSuspended"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "postcode_suburbs", :force => true do |t|

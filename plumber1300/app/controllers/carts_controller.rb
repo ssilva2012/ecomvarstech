@@ -120,15 +120,23 @@ class CartsController < ApplicationController
           postcodeInt = ExpressInterst.new
           postcodeInt.email = session[:email]
           postcodeInt.postcode = epc
+          postcodeInt.results = "P"
 
           postcodeInt.save
         end
       }
       @user = User.find_by_email(session[:email])
+      session[:cart_postcodes] = nil
       UserMailer.express_intrest(@user, session[:cart_postcodes]).deliver
       UserMailer.intrest_plumber(@user, session[:cart_postcodes]).deliver
       respond_to do |format|
         format.html { redirect_to plumber_home_path, notice: 'Cart was successfully created.' }
+        format.json { render json: @cart, status: :created, location: @cart }
+      end
+    else
+      session[:waiting] = "Y"
+      respond_to do |format|
+        format.html { redirect_to login_path, notice: 'Cart was successfully created.' }
         format.json { render json: @cart, status: :created, location: @cart }
       end
     end

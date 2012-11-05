@@ -16,6 +16,7 @@ class SessionsController < ApplicationController
   def destroy
     logger.debug("1300 HITS logout")
   	session[:user_name] = nil
+    session[:cart_postcodes] =  nil
   	redirect_to home_path, notice: "Logged out"
   end
 

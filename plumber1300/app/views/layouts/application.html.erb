@@ -97,6 +97,9 @@
 >>>>>>> 96fa1ae824beab9730223e113ce95a9eb0c392b1
 		</div>-->
 
+		<% if session[:cart_postcodes] %>
+			<a href="/findPostcode"> My Cart </a>
+		<% end %>
 
 		<div class="group">
 			<ul id="nav">
@@ -155,7 +158,7 @@
 					<a  href="/serviceterms">Terms Of Service |</a> 
 					<a  href="/advertisehere">Advertise Here |</a> 
 					<a  href="/refund">Returns &amp; Refunds |</a>
-					<% if session[:user_name] %>
+					<% if session[:email] %>
 						<a  href="/logout">Logout</a>
 					<% else %>
 						<a  href="/login">Login</a>

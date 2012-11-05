@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  postcode: MyString
+  email: MyString
+  createdDate: 2012-11-05
+  expiryDate: 2012-11-05
+  isSuspended: 1
+
+two:
+  postcode: MyString
+  email: MyString
+  createdDate: 2012-11-05
+  expiryDate: 2012-11-05
+  isSuspended: 1
