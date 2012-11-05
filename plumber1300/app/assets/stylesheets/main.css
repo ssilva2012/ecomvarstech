@@ -122,7 +122,7 @@ h4 {
 	font-size: 1em; /* 26px */
 	line-height: 1em;
 	margin: 0 0 1em;
-	
+
 }
 
 small, footer {
@@ -2689,10 +2689,9 @@ background-color:#68C2F5;
 
 .tableStyle td{
 vertical-align:middle;
-background-color:#68C2F5;
-border:1px solid #A9CBD1;
-border-radius: 0.8em;
-border-width:0px 1px 1px 0px;
+border:1px solid #DBE4E6;
+border-radius: 0.1em;
+border-width:4px 4px 4px 4px;
 text-align:center;
 padding:7px 0px;
 font-size:15px;
