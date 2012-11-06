@@ -1,11 +1,24 @@
 class UserMailer < ActionMailer::Base
   default from: "1300 PLUMBER <vastechmailservice@gmail.com>"
+
   def registration_confirmation(user)
     @user = user
     #attachments["rails.png"] = File.read("#{Rails.root}/public/images/rails.png")
     mail(:to => "#{user.email} <#{user.email}>", :subject => "Registered on 1300 PLUMBER")
   end
 
+  def reset_password(user, randomString)
+    @user = user
+    @randomString = randomString
+    #attachments["rails.png"] = File.read("#{Rails.root}/public/images/rails.png")
+    mail(:to => "#{user.email} <#{user.email}>", :subject => "Reset password on 1300 PLUMBER")
+  end
+
+  def change_password(user)
+    @user = user
+    #attachments["rails.png"] = File.read("#{Rails.root}/public/images/rails.png")
+    mail(:to => "#{user.email} <#{user.email}>", :subject => "1300 PLUMBER password change")
+  end
   
   def express_intrest(user, postcodeList)
     @user = user

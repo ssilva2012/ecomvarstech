@@ -44,6 +44,7 @@ Plumber1300::Application.routes.draw do
     get 'login' => :new
     post 'login' => :create
     get 'logout' => :destroy
+    post 'changepassword' => :changepassword
   end
 
   # The priority is based upon order of creation:
