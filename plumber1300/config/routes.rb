@@ -131,6 +131,7 @@ Plumber1300::Application.routes.draw do
   get 'diytutorials' => 'static_pages#diytutorials'
   get 'faq' => 'static_pages#faq'
   get '/findPostcode' => 'postcodes#findpostcode'
+  post '/findPostcode' => 'postcodes#findpostcode'
   get '/addCartItem' => 'carts#addCartItem'
   get '/removeCartItem' => 'carts#removeCartItem'
   post '/submitCart' => 'carts#submitCart'

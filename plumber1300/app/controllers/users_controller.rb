@@ -56,18 +56,29 @@ class UsersController < ApplicationController
         if(params[:signup])
           session[:email] = @user.email
           UserMailer.registration_confirmation(@user).deliver
-          format.html { redirect_to home_path, notice: 'User was successfully created.' }
-          format.json { render json: @user, status: :created, location: @user }
+          if session[:cart_postcodes]
+            logger.debug "Redirect1 to #{findPostcode_path}"
+            format.html { redirect_to findPostcode_path, notice: 'User was successfully created.' }
+            format.json { render json: @user, status: :created, location: @user }
+          else 
+            logger.debug "Redirect2 to #{static_pages_plumbersection_path}"
+            redirect_to static_pages_plumbersection_url
+            format.html { redirect_to static_pages_plumbersection_url, notice: 'User was successfully created.' }
+            format.json { render json: @user, status: :created, location: @user }
+          end
         else
+          logger.debug "Redirect3"
           format.html { redirect_to admin_user_url, notice: 'User was successfully created.' }
           format.json { render json: @user, status: :created, location: @user }
         end
       else
+        logger.debug "Redirect4"
         if(params[:signup])
           format.html { render action: "newUser" }
         else
           format.html { render action: "new" }
         end
+        logger.debug "Redirect56"
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
