@@ -84,27 +84,27 @@ class PostcodesController < ApplicationController
 
   def findpostcode
     sessionPostcodes = session[:cart_postcodes]
-    logger.debug "SANJ CCC #{params['postcode']}"
-    logger.debug "SANJ CCC2 #{session[:postcode]}"
+    logger.debug "SANJ BBB1 #{params['postcode']}"
+    logger.debug "SANJ BBB2 #{session[:postcode]}"
     logger.debug " findpostcode Session POCTCODE #{session[:cart_postcodes]}"
     postcodeValue = 0
     if session[:postcode]  and !params['postcode']
       postcodeValue = session[:postcode]
-      logger.debug "SANJ CCC3"
+      logger.debug "SANJ BBB3"
     else
       postcodeValue = params['postcode'] 
     end
     
     if params['postcode']
-      logger.debug "SANJ CCC4"
+      logger.debug "SANJ BBB4"
       session[:postcode] = params['postcode'] 
     end
 
-    logger.debug "SANJ CCC5 #{postcodeValue}"
+    logger.debug "SANJ BBB5 #{postcodeValue}"
     @postcodeSuburbs = PostcodeSuburb.find_by_postcode(postcodeValue)
-    logger.debug "SANJ CCV1 #{postcodeValue}"
+    logger.debug "SANJ BBB6 #{postcodeValue}"
     if @postcodeSuburbs
-      logger.debug "SANJ CCV2"
+      logger.debug "SANJ BBB7"
       postcodeValue = 0
       if @postcodeSuburbs.kind_of? (Array)
         postcodeValue = @postcodeSuburbs[0].postcode
@@ -135,21 +135,21 @@ class PostcodesController < ApplicationController
           }
         end
       end
-      logger.debug "SANJ CCV3"
+      logger.debug "SANJ BBB8"
       logger.debug "No postcode found #{postcodeValue}"
     end
-    logger.debug "SANJ CCV10"
+    logger.debug "SANJ BBB9"
     @carts= Array.new(20)
     
     setupFee = 1
     lineItemIndex = 0
     @initSetup = 0
     @perMonth = 0
-    logger.debug "SANJ CCC01 #{sessionPostcodes}"
+    logger.debug "SANJ BBB10 #{sessionPostcodes}"
     if sessionPostcodes
         sessionPostcodes.split(",").each { |spc|
           pc = Postcode.find_by_postcode(spc)
-          logger.debug "SANJ CCC02 #{spc}"
+          logger.debug "SANJ BBB11 #{spc}"
           if pc
             cart = Cart.new
             cart.postcode = pc.postcode
@@ -165,7 +165,7 @@ class PostcodesController < ApplicationController
               @initSetup = @initSetup  + 250
             end
             @carts[lineItemIndex] = cart
-            logger.debug "SANJ CCC03 #{lineItemIndex}"
+            logger.debug "SANJ BBB12 #{lineItemIndex}"
             lineItemIndex = lineItemIndex + 1
           end
         }

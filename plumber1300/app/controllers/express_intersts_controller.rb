@@ -2,7 +2,7 @@ class ExpressInterstsController < ApplicationController
   # GET /express_intersts
   # GET /express_intersts.json
   def index
-    @express_intersts = ExpressInterst.where("results=?", "P")
+    @express_intersts = ExpressInterst.all
 
     @expressIntersts = Array.new(20)
 
@@ -99,6 +99,7 @@ class ExpressInterstsController < ApplicationController
   end
 
   def approve
+    postcodeInt = ExpressInterst.where(email: params[:email], postcode: params[:postcode], results: "P")
     postcode = Postcode.find_by_postcode(params[:postcode])
     if postcode.isAvailable == 1
       postcode.availableLimit = postcode.availableLimit - 1
@@ -107,23 +108,34 @@ class ExpressInterstsController < ApplicationController
       end
     end
     timeNow = Time.now
-    postcodeList = PostcodeList.new
-    postcodeList.postcode = postcode.postcode
-    postcodeList.email = params[:email]
-    postcodeList.createdDate = timeNow.localtime
-    postcodeList.expiryDate = 1.years.from_now
-    postcodeList.isSuspended = 0
+    plumberList = PlumberList.new
+    plumberList.postcode = postcode.postcode
+    plumberList.email = params[:email]
+    plumberList.createdDate = timeNow.localtime
+    plumberList.expiryDate = 1.years.from_now
+    plumberList.isSuspended = 0
 
-    postcodeList.save
+    postcodeInt[0].results = "A"
+
+    plumberList.save
     postcode.save
+    postcodeInt[0].save
 
     respond_to do |format|
-      format.html { redirect_to @express_interst, notice: 'Express interst was successfully Accepted.' }
+      format.html { redirect_to express_intersts_path, notice: 'Express interst was successfully Accepted.' }
       format.json { render json: @express_interst, status: :created, location: @express_interst }
     end
     
   end
 
   def reject
+    postcodeInt = ExpressInterst.where(email: params[:email], postcode: params[:postcode], results: "P")  
+    postcodeInt[0].results = "R"
+    postcodeInt[0].save
+
+    respond_to do |format|
+      format.html { redirect_to express_intersts_path, notice: 'Express interst was successfully Accepted.' }
+      format.json { render json: @express_interst, status: :created, location: @express_interst }
+    end
   end
 end

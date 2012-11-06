@@ -7,7 +7,11 @@ class SessionsController < ApplicationController
 	if user and user.authenticate(params[:password])
 		session[:user_name] = user.lastName
     session[:email] = user.email
-		redirect_to home_path
+    if session[:cart_postcodes]
+		  redirect_to findPostcode_path
+    else 
+      redirect_to static_pages_plumbersection_path
+    end
 	else
 		redirect_to '/login', alert: "Invalid user/password combination"
 	end

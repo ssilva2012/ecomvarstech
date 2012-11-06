@@ -18,15 +18,25 @@
       <td><%= express_interst.created_at %></td>
       <td name="email"><%= express_interst.email %></td>
       <td><%= express_interst.postcode %></td>
-      <td><%= express_interst.results %></td>
-      <% if express_interst.available == "Available" %>
-        <td style="color:green"><%= express_interst.available %></td>
+      <% if express_interst.results == "A" %>
+        <td style="color:green"><%= express_interst.results %></td>
       <% else %>
-        <td style="color:red"><%= express_interst.available %></td>
+        <% if express_interst.results == "R" %>
+          <td style="color:red"><%= express_interst.results %></td>
+        <% else %>
+          <td><%= express_interst.results %></td>
+        <% end %>
       <% end %>
-      <td><%= link_to 'Approve', approve_path(postcode: express_interst.postcode, email: express_interst.email),  method: :post%></td>
-      <td><%= link_to 'Reject', reject_path(postcode: express_interst.postcode, email: express_interst.email),  method: :post %></td>
-      <td><%= link_to 'Delete', express_interst, confirm: 'Do you want to delete this user?', method: :delete %></td>
+      <% if express_interst.results == "P" %>
+        <% if express_interst.available == "Available" %>
+          <td style="color:green"><%= express_interst.available %></td>
+        <% else %>
+          <td style="color:red"><%= express_interst.available %></td>
+        <% end %>   
+
+        <td><%= link_to 'Approve', approve_path(postcode: express_interst.postcode, email: express_interst.email),  method: :post%></td>
+        <td><%= link_to 'Reject', reject_path(postcode: express_interst.postcode, email: express_interst.email),  method: :post %></td>
+      <% end %>
     </tr>
   <% end %>
 <% end %>

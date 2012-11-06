@@ -30,7 +30,11 @@
 						<td><b> $<%= @perMonth %> </b></td>
 					</tr>	
 					<tr>
-						<td colspan="2" align="right"><%= button_to 'Express Intrest', submitCart_path %></td>
+						<% if session[:email] %>
+							<td colspan="2" align="right"><%= button_to 'Express Intrest', submitCart_path %></td>
+						<% else %>
+							<td align="right"><%= button_to 'Express Intrest', login_path %></td>
+						<% end %>
 					</tr>
 		      </table>
 		      <% else %>
