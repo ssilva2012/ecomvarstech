@@ -786,7 +786,7 @@ border: 1px #ffffff inset;
         /*current text*/
         
 #navbottom .current a,#navbottom li:hover>a{
-        text-shadow:0 1px 0 rgba(255,255,255,.8);}
+        text-shadow:0 1px 0 yellow;}
         
         /*list down*/
 #navbottom ul li:hover a,#navbottom li:hover li a{background:none;
@@ -2474,7 +2474,7 @@ a.copyrightlinks a:hover {
 
 .textnonm:hover
 {	
-	border-color:black;
+	border-color:red;
 }
 
 .textnonm
@@ -2672,40 +2672,64 @@ background:#E8E8E8;
 
 .tableStyle {
 padding:50px 0px;
-width:60em;	
+width:70em;	
 box-shadow: 0px 0px px white;
 }
 
 .tableStyle table{
-width:80%;
+width:65%;
 height:100%;
 margin:15px 2px;
 padding:0px;
 }
 
 .tableStyle tr:hover td{
-background-color:#68C2F5;
+/*background-color:#68C2F5;*/
 }
 
 .tableStyle td{
 vertical-align:middle;
-border:1px solid #DBE4E6;
+border:1px solid #7FD4DF;
+width:18%;
 border-radius: 0.1em;
-border-width:4px 4px 4px 4px;
+border-width:10px 10px 10px 10px;
+background-color:white;
 text-align:center;
-padding:7px 0px;
-font-size:15px;
+padding:3px 15px;
+font-size:13px;
 font-style: #486A72;
-font-weight:bold;
 color:#2F424B;
 line-height: 20px;
+border-color:-webkit-gradient(linear,left top,left bottom,from(white),to(#a1a1a1));
+border-color:-moz-linear-gradient(top,white,#a1a1a1);
 }
 
 .tableStyle table tr:first-child td{
-background-color:#486A72;
+background-color:white;
 font-size:40px;
 text-align:center;
 color:white;
-line-height: 60px;
+line-height: 40px;
 }
+
+
+#logindlg {
+			color: #fff;
+            background: #70949B;
+            -moz-border-radius: 1px;
+            -webkit-border-radius: 1px;
+			border-radius: 1px;
+            margin: 10px;
+			width: 40%;
+			padding: 0 0px 33px 1em;
+            }
+
+ #logindlg a {
+      color: #C7CBE6;
+	  font-style: verdana;
+	  font-size: 80%;
+      text-shadow: 0px -1px 0px #000;
+      }
+
+
 
