@@ -29,12 +29,12 @@ class UserMailer < ActionMailer::Base
   def intrest_plumber(user, postcodeList)
     @user = user
     @postcodeList = postcodeList
-    mail(:to => "feedback.1300plumber@gmail.com", :subject => "Express of Intrest from plumber #{user.email}")
+    mail(:to => "1300plumberuat@gmail.com", :subject => "Express of Intrest from plumber #{user.email}")
   end
 
   def customer_feedback(feedback)
     @feedback = feedback
     #attachments["rails.png"] = File.read("#{Rails.root}/public/images/rails.png")
-    mail(:to => "feedback.1300plumber@gmail.com", :subject => "Feedback Received from #{feedback.custName}")
+    mail(:to => "1300plumberuat@gmail.com", :subject => "Feedback Received from #{feedback.custName}")
   end
 end
