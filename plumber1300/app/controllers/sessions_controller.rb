@@ -35,8 +35,12 @@ class SessionsController < ApplicationController
         else
           if session[:cart_postcodes]
       		  redirect_to findPostcode_path
-          else 
-            redirect_to static_pages_plumbersection_path
+          else
+            if session[:isPendingUpload]
+              redirect_to fileupload_path 
+            else
+              redirect_to static_pages_plumbersection_path
+            end
           end
         end
     	else
@@ -66,7 +70,11 @@ class SessionsController < ApplicationController
         if session[:cart_postcodes]
           redirect_to findPostcode_path
         else 
-          redirect_to static_pages_plumbersection_path
+          if session[:isPendingUpload]
+            redirect_to fileupload_path
+          else
+            redirect_to static_pages_plumbersection_path
+          end
         end
       else
         render "updatepassword", notice: 'Password change unsuccessful. Try again.'

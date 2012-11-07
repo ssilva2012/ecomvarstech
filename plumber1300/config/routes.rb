@@ -110,8 +110,7 @@ Plumber1300::Application.routes.draw do
   get 'admin/postcode/:id/edit/' => 'postcodes#edit'
   get 'admin/postcodesuburbs' => 'postcode_suburbs#index'
   get 'admin/postcodesuburbs/new' => 'postcode_suburbs#new'
-  get 'admin/postcodesuburbs/:id/edit/' => 'postcode_suburbs#edit'
-  
+  get 'admin/postcodesuburbs/:id/edit/' => 'postcode_suburbs#edit'  
   get 'admin/user' => 'users#index'
   get 'admin/user/new' => 'users#new'
   get 'admin/user/:id/edit/' => 'users#edit'
@@ -120,6 +119,7 @@ Plumber1300::Application.routes.draw do
   get 'admin/suppliers' => 'suppliers#index'
   get 'admin/suppliers/new' => 'suppliers#new'
   get 'admin/feedback' => 'feedback_shorts#index'
+  get 'admin/applications' => 'express_intersts#index' 
   
   #static pages mapping
   get 'home' => 'static_pages#home'
@@ -131,11 +131,11 @@ Plumber1300::Application.routes.draw do
   get 'contactus' => 'static_pages#contactus'
   get 'diytutorials' => 'static_pages#diytutorials'
   get 'faq' => 'static_pages#faq'
-  get '/findPostcode' => 'postcodes#findpostcode'
-  post '/findPostcode' => 'postcodes#findpostcode'
+  get '/findPostcode' => 'postcodes#findpostcode'  
   get '/addCartItem' => 'carts#addCartItem'
   get '/removeCartItem' => 'carts#removeCartItem'
   post '/submitCart' => 'carts#submitCart'
+  post '/findPostcode' => 'postcodes#findpostcode'
 
   #plumber pages mapping
   get '/plumber/faq' => 'static_pages#faqplumber'
@@ -148,11 +148,10 @@ Plumber1300::Application.routes.draw do
   get 'newuser' => 'users#newUser'
   post 'signup' => 'users#signUp'
   get 'feedback' => 'feedback_shorts#new'
+  get '/fileupload' => 'users#uploadFiles'
+  post '/upload' => 'users#upload'
 
   post 'approve' => 'express_intersts#approve'
   post 'reject' => 'express_intersts#reject'
-  
-  
-
 
 end

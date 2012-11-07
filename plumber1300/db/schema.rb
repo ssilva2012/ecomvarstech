@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121105033411) do
+ActiveRecord::Schema.define(:version => 20121107114735) do
 
   create_table "carts", :force => true do |t|
     t.integer  "cart_id"
@@ -141,6 +141,9 @@ ActiveRecord::Schema.define(:version => 20121105033411) do
     t.integer  "insured",         :default => 1
     t.integer  "efficient",       :default => 1
     t.string   "howFind"
+    t.integer  "attInsurance"
+    t.integer  "attPolice"
+    t.integer  "attPlumberCert"
   end
 
 end

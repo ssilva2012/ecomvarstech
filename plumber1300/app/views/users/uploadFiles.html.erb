@@ -1,0 +1,10 @@
+<h3> This is upload file form </h3>
+
+<%= form_tag("/upload", :method => "post") do %>
+	<table>
+		<tr><td>Public Insurance</td> <td><%= file_field_tag :insurance %></td> </tr>
+		<tr><td>Police Certificate</td>  <td><%= file_field_tag :ploiceCert %></td> </tr>
+		<tr><td>Plumbing Certificate</td>  <td><%= file_field_tag :plumberCert %></td> </tr>
+		<tr><td colspan="2" align="center"> <%= submit_tag "Submit Documents"%></td> </tr>
+	</table>
+<% end %>

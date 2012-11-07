@@ -37,4 +37,14 @@ class UserMailer < ActionMailer::Base
     #attachments["rails.png"] = File.read("#{Rails.root}/public/images/rails.png")
     mail(:to => "1300plumberuat@gmail.com", :subject => "Feedback Received from #{feedback.custName}")
   end
+
+  def upload_documents(uploadFiles)
+    indexNo = 0
+    uploadFiles.each do |file|
+        attachments[indexNo] = File.read(file)  
+        indexNo = indexNo + 1    
+    end
+
+    mail(:to => "1300plumberuat@gmail.com", :subject => "Upload File Received")
+  end
 end

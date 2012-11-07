@@ -113,4 +113,24 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def uploadFiles
+    if session[:email]
+      logger.debug "Ready to upload files"
+    else
+      session[:isPendingUpload] = "Y"
+      respond_to do |format|
+          format.html { redirect_to login_path }
+          format.json { head :no_content }
+      end
+    end
+  end
+
+  def upload
+    @uploaded_files = []
+    @uploaded_files << params[:insurance]
+    @uploaded_files << params[:ploiceCert]
+    @uploaded_files << params[:plumberCert]
+    UserMailer.upload_documents(@uploaded_files).deliver
+  end
 end
