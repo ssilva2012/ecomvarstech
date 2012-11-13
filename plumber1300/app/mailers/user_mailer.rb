@@ -38,13 +38,11 @@ class UserMailer < ActionMailer::Base
     mail(:to => "1300plumberuat@gmail.com", :subject => "Feedback Received from #{feedback.custName}")
   end
 
-  def upload_documents(uploadFiles)
+  def upload_documents(uploadFiles1, uploadFiles2, uploadFiles3, emailAddress)
     indexNo = 0
-    uploadFiles.each do |file|
-        attachments[indexNo] = File.read(file)  
-        indexNo = indexNo + 1    
-    end
-
-    mail(:to => "1300plumberuat@gmail.com", :subject => "Upload File Received")
+    mail.attachments["ins"] = uploadFiles1.read 
+    mail.attachments["pli"] = uploadFiles2.read 
+    mail.attachments["plu"] = uploadFiles3.read 
+    mail(:to => "ngcssilva@gmail.com", :subject => "Upload File Received from USER")
   end
 end

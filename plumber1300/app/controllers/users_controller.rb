@@ -118,11 +118,11 @@ class UsersController < ApplicationController
     if session[:email]
       logger.debug "Ready to upload files"
     else
-      session[:isPendingUpload] = "Y"
-      respond_to do |format|
-          format.html { redirect_to login_path }
-          format.json { head :no_content }
-      end
+      #session[:isPendingUpload] = "Y"
+      #respond_to do |format|
+          #format.html { redirect_to login_path }
+          #format.json { head :no_content }
+      #end
     end
   end
 
@@ -131,6 +131,10 @@ class UsersController < ApplicationController
     @uploaded_files << params[:insurance]
     @uploaded_files << params[:ploiceCert]
     @uploaded_files << params[:plumberCert]
-    UserMailer.upload_documents(@uploaded_files).deliver
+    UserMailer.upload_documents(params[:insurance], params[:ploiceCert], params[:plumberCert], session[:email]).deliver
+    respond_to do |format|
+        format.html { redirect_to static_pages_plumbersection_url }
+        format.json { head :no_content }
+    end
   end
 end

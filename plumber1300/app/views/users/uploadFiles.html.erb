@@ -1,6 +1,6 @@
 <h3> This is upload file form </h3>
 
-<%= form_tag("/upload", :method => "post") do %>
+<%= form_tag("/upload", :method => "post", :multipart=>true ) do %>
 	<table>
 		<tr><td>Public Insurance</td> <td><%= file_field_tag :insurance %></td> </tr>
 		<tr><td>Police Certificate</td>  <td><%= file_field_tag :ploiceCert %></td> </tr>
